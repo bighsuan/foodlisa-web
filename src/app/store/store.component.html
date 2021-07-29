@@ -1,0 +1,18 @@
+<div class="title">
+    <h1>{{store.name}}</h1>
+    <button [routerLink]="['/product-add']" >新增商品</button>
+</div>
+<div class="products-menu">
+  <a *ngFor="let product of products" routerLink="/product-detail/{{product.id}}">
+    <img *ngIf="product.imageUrl" [src]="product.imageUrl" width="90%" alt="Italian Trulli" />
+    <div class="product-info">
+      <div class="name">{{product.name}}</div>
+      <div class="price">${{product.price}}</div>
+      <hr />
+      <div class="description">
+        {{product.description.length > 10?
+        product.description.substring(0,20)+'...': product.description}}
+      </div>
+    </div>
+  </a>
+</div>

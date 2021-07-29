@@ -1,0 +1,55 @@
+<div *ngIf="product" class="product-detail">
+
+  <h1>編輯商品</h1>
+  <div class="buttons">
+  <button [routerLink]="['/product-detail', product.id]">取消</button>
+  <button (click)="save()">儲存</button>
+</div>
+  <div>
+    <label for="product-name">*名稱: </label>
+    <input
+      id="product-name"
+      [(ngModel)]="product.name"
+      placeholder="請輸入商品名稱"
+    />
+  </div>
+  <div>
+    <label for="product-price">*價格: </label>
+    <input
+      id="product-price"
+      [(ngModel)]="product.price"
+      placeholder="請輸入價格"
+      type="number"
+    />
+  </div>
+  <div>
+    <label for="product-desc">描述: </label>
+    <input
+      id="product-desc"
+      [(ngModel)]="product.description"
+      placeholder="請輸入商品描述"
+    />
+  </div>
+  <div class="product-image" for="product-image">
+    <label>圖片:</label>
+    <input
+      id="product-image"
+      [(ngModel)]="product.imageUrl"
+      placeholder="請輸入圖片網址"
+      [attr.disabled]="useDefault ? '' : null"
+    />
+    <div>
+      <input
+      id="checkbox"
+      type="checkbox"
+      [checked]="useDefault"
+      (change)="checkBox()"/>
+      使用預設圖片
+    </div>
+    <div><img *ngIf="product.imageUrl" [src]="product.imageUrl" style="max-width:600px;width:100%"  alt="Italian Trulli" />
+    </div>
+  </div>
+
+
+
+</div>
