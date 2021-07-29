@@ -1,38 +1,35 @@
 <div class="product-detail">
-
-
   <h1>新增商品</h1>
 
   <div>
-    <button [routerLink]="['/']">取消</button>
-    <button (click)="add()">新增</button>
+    <button class="shadow-sm" [routerLink]="['/']">取消</button>
+    <button class="shadow-sm" (click)="add()">新增</button>
   </div>
-
 
   <div>
     <label for="product-name">*名稱: </label>
     <input
-    id="product-name"
-    [(ngModel)]="postData.name"
-    placeholder="請輸入商品名稱"
-  />
+      id="product-name"
+      [(ngModel)]="postData.name"
+      placeholder="請輸入商品名稱"
+    />
   </div>
   <div>
     <label for="product-price">*價格: </label>
     <input
-    id="product-price"
-    [(ngModel)]="postData.price"
-    placeholder="請輸入價格"
-    type="number"
-  />
+      id="product-price"
+      [(ngModel)]="postData.price"
+      placeholder="請輸入價格"
+      type="number"
+    />
   </div>
   <div>
     <label for="product-desc">描述: </label>
     <input
-    id="product-desc"
-    [(ngModel)]="postData.description"
-    placeholder="請輸入商品描述"
-  />
+      id="product-desc"
+      [(ngModel)]="postData.description"
+      placeholder="請輸入商品描述"
+    />
   </div>
   <div class="product-image" for="product-image">
     <label>圖片:</label>
@@ -44,13 +41,20 @@
     />
     <div>
       <input
-      id="checkbox"
-      type="checkbox"
-      [checked]="useDefault"
-      (change)="checkBox()"/>
+        id="checkbox"
+        type="checkbox"
+        [checked]="useDefault"
+        (change)="checkBox()"
+      />
       使用預設圖片
     </div>
-    <div *ngIf="postData.imageUrl"><img [src]="postData.imageUrl"  style="max-width:600px;width:100%" alt="Italian Trulli" />
+    <div *ngIf="postData.imageUrl">
+      <img
+        [src]="postData.imageUrl"
+        style="max-width:600px;width:100%"
+        alt="Italian Trulli"
+        class="border"
+      />
     </div>
   </div>
 </div>

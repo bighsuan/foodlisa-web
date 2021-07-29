@@ -1,14 +1,17 @@
 <div *ngIf="product" class="product-detail">
-
   <h1>商品詳細資訊</h1>
 
   <div>
-  <button [routerLink]="['/']">返回</button>
+    <button class="shadow-sm" [routerLink]="['/']">返回</button>
 
-  <button [routerLink]="['/product-detail', product.id, 'edit']">修改</button>
-  <button (click)="delete()">刪除商品</button>
-</div>
-
+    <button
+      class="shadow-sm"
+      [routerLink]="['/product-detail', product.id, 'edit']"
+    >
+      修改
+    </button>
+    <button class="shadow-sm" (click)="delete()">刪除商品</button>
+  </div>
 
   <div>
     <label>名稱: </label>
@@ -23,7 +26,15 @@
     <div>{{product.description}}</div>
   </div>
   <div class="product-image">
-    <label>圖片:  </label>
-    <div><img *ngIf="product.imageUrl" [src]="product.imageUrl" style="max-width:600px;width:100%" alt="Italian Trulli" /></div>
+    <label>圖片: </label>
+    <div>
+      <img
+        *ngIf="product.imageUrl"
+        [src]="product.imageUrl"
+        style="max-width:600px;width:100%"
+        alt="Italian Trulli"
+        class="border"
+      />
+    </div>
   </div>
 </div>
