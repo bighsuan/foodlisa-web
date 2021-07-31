@@ -6,10 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { StoreComponent } from './store/store.component';
-import { ProductEditComponent } from './product-edit/product-edit.component';
-import { ProductAddComponent } from './product-add/product-add.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './login/login.component';
@@ -17,7 +14,8 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductService } from './services/product.service';
 import { StoreService } from './services/store.service';
 import { MiddlewareService } from './services/middleware.service';
-import { ProductListComponent } from './pages/productproduct-list/product-list.component';
+import { ProductListComponent } from './pages/product/product-list/product-list.component';
+import { ProductEditComponent } from './pages/product/product-edit/product-edit.component';
 
 @NgModule({
   imports: [
@@ -29,12 +27,9 @@ import { ProductListComponent } from './pages/productproduct-list/product-list.c
   ],
   declarations: [
     AppComponent,
-    ProductDetailComponent,
-    ProductDetailComponent,
     StoreComponent,
     ProductEditComponent,
     TopBarComponent,
-    ProductAddComponent,
     LoginComponent,
     FooterComponent,
     SignupComponent,
