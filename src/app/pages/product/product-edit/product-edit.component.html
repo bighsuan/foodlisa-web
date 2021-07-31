@@ -1,0 +1,77 @@
+<div class="rightSide">
+  <div class="loader" *ngId="isLoading"></div>
+  <h2>上架送物</h2>
+  <div class="divider"></div>
+  <div class="giveWrap">
+    <div class="giveDetail">
+      <form [formGroup]="productForm" (ngSubmit)="submit()">
+        <div class="givesshelvesFormWrap">
+          <span>類別</span>
+          <select
+    name
+    id="classSelect"
+    formControlName="category"
+  >
+    <option value="makeups">makeups</option>
+    <option value="shoes">shoes</option>
+    <option value="clothing">clothing</option>
+    <option value="3C">3C</option>
+    <option value="other">other</option>
+  </select>
+        </div>
+        <div class="givesshelvesFormWrap">
+          <span>上傳圖片</span>
+          <input
+    type="file"
+    class="givesUp"
+    ref="files"
+  />
+        </div>
+        <div class="givesshelvesFormWrap">
+          <span>上傳圖片</span>
+          <input
+    type="text"
+    class="givesUp"
+    formControlName="imageUrl"
+  />
+        </div>
+        <div class="givesshelvesFormWrap">
+          <span>送物名稱</span>
+          <input
+    type="text"
+    class="givesUp"
+    formControlName="title"
+  />
+        </div>
+        <div class="givesshelvesFormWrap">
+          <span>送物故事</span>
+          <textarea
+    cols="30"
+    rows="3"
+    type="text"
+    class="givesUp imgUpdate"
+    formControlName="description"
+  ></textarea>
+        </div>
+        <div class="givesshelvesFormWrap">
+          <span>面交地點</span>
+          <input
+    type="text"
+    class="givesUp imgUpdate"
+    formControlName="location"
+  />
+        </div>
+        <!-- <div class="givesshelvesFormWrap">
+  <span>取物者LINE ID</span>
+  <input type="text" class="givesUp imgUpdate" formControlName="productForm.lineID" />
+</div>-->
+        <div class="upBtn">
+          <button
+    class="shelvesBtn"
+    type="submit"
+  >上架</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

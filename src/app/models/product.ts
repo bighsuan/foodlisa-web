@@ -1,18 +1,16 @@
 export interface IProduct {
   id: number;
-  typeId: number;
+  storeId: number;
+  category: ICategory;
   name: string;
+  description: string;
   price: number;
-  status: number;
-  file: string;
-  type?: IType; //關聯"types"
-  updateBy: number;
-  updated: number;
-  insertBy: number;
-  inserted: number;
+  imageUrl: string;
+  CreatedAt: string;
+  UpdatedAt: string;
 }
 
-export interface IType {
+export interface ICategory {
   id: number;
   name: string;
 }

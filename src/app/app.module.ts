@@ -16,6 +16,7 @@ import { StoreService } from './services/store.service';
 import { MiddlewareService } from './services/middleware.service';
 import { ProductListComponent } from './pages/product/product-list/product-list.component';
 import { ProductEditComponent } from './pages/product/product-edit/product-edit.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,8 @@ import { ProductEditComponent } from './pages/product/product-edit/product-edit.
     LoginComponent,
     FooterComponent,
     SignupComponent,
-    ProductListComponent
+    ProductListComponent,
+    SidebarComponent
   ],
   bootstrap: [AppComponent],
   providers: [ProductService, StoreService, MiddlewareService]

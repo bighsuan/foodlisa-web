@@ -1,3 +1,87 @@
-<p>
-product-list works!
-</p>
+<div class="rightSide">
+  <div class="loader" *ngId="isLoading"></div>
+  <h2>商</h2>
+  <div class="divider"></div>
+  <div class="updateWrap">
+    <button
+    class="updateBtn"
+    router="['/products','edit']"
+    >新增</button>
+  </div>
+  <!-- 電腦版 -->
+  <ul class="givesshelvesWrap" *ngFor="let product of products">
+    <div class="imgName">
+      <li>
+
+        <img
+      *ngIf="product.imageUrl"
+      [src]="product.imageUrl"
+      width="90%"
+      alt
+    />
+      </li>
+      <li>
+        <h5 class="givesshelvestName">{{ product.name }}</h5>
+      </li>
+    </div>
+    <li>
+      <div class="givesshelvesBtns">
+        <button
+        class="givesDetailBtn"
+        :id="product.id"
+        routerLink="/products/{{product.id}}"
+      >
+        送物明細
+      </button>
+        <button
+        class="editBtn"
+        :id="product.id"
+        routerLink="/products/{{product.id}/edit}"
+      >
+        編輯
+      </button>
+      </div>
+    </li>
+    <li :id="product.id" (click)="delProduct">
+      <i
+      class="fas fa-times"
+      :id="product.id"
+      (click)="delProduct"
+    ></i>
+    </li>
+  </ul>
+  <!-- 手機版 -->
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td><img
+        :src="product.imageUrl"
+        alt
+      /></td>
+      <td><span>名稱</span><span>{{ product.name }}</span></td>
+      <td><span>送物資訊</span>
+        <div class="givesshelvesBtns">
+          <button
+          class="givesDetailBtn"
+          :id="product.id"
+          routerLink="/products/{{product.id}}"
+        >
+          送物明細
+        </button>
+          <button
+          class="editBtn"
+          :id="product.id"
+          routerLink="/products/{{product.id}}/edit"
+        >
+          編輯
+        </button>
+        </div>
+      </td>
+
+      <td><span>刪除</span><span><button
+          class="addtoBag"
+          :id="product.id"
+          (click)="delProduct"
+        >刪除</button></span></td>
+    </tr>
+  </tbody>
+</div>

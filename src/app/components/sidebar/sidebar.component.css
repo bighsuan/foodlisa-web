@@ -1,0 +1,206 @@
+/* ------------------------------MemberCenter-------------------------- */
+
+.leftSide {
+  width: 30%;
+  padding-bottom: 200px;
+}
+
+.memberList {
+  width: 70%;
+  position: relative;
+  /* overflow: hidden; */
+  cursor: pointer;
+}
+
+.memberInfoList > li:hover {
+  color: #d7e5de;
+}
+
+.memberList > li:hover {
+  color: #000;
+}
+
+.memberList > li.active:hover {
+  color: #fff;
+  cursor: none;
+}
+
+.mli {
+  border-top: 1px solid #a09d9d;
+  border-left: 1px solid #a09d9d;
+  border-right: 1px solid #a09d9d;
+  text-align: center;
+  padding: 12px 0px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #4c4c4c;
+}
+
+.memberCenter {
+  color: #ffffff;
+  background-color: #4c4c4c;
+}
+
+.memberInfoList {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  border-top: none;
+  border-left: none;
+  border: 1px solid #a09d9d;
+  top: 44px;
+  left: 100%;
+  width: 100%;
+}
+
+.memberInfo:hover .memberInfoList {
+  display: flex;
+}
+
+.memberModify {
+  border-bottom: 1px solid #a09d9d;
+}
+
+.memberModify,
+.memberModifyPassword {
+  border-top: none;
+  border-left: none;
+  background-color: #f5f5f5;
+  padding: 12px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #4c4c4c;
+}
+
+.memberEachOrder {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  border-top: none;
+  border-left: none;
+  border: 1px solid #a09d9d;
+  background-color: #f5f5f5;
+  top: 90px;
+  left: 100%;
+  width: 100%;
+}
+
+.myGivesOrder {
+  border-bottom: 1px solid #a09d9d;
+}
+
+.myGivesOrder,
+.myGetOrder {
+  border-top: none;
+  border-left: none;
+  padding: 12px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #4c4c4c;
+}
+
+.orderList:hover .memberEachOrder {
+  display: flex;
+}
+
+.memberEachOrder > li:hover {
+  color: #000;
+}
+
+.logOut {
+  border-bottom: 1px solid #a09d9d;
+}
+
+.rightSide {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.rightSide h2 {
+  font-size: 30px;
+}
+
+.rightSide h3 {
+  font-size: 20px;
+  margin: 10px 0px;
+}
+
+.heartImg {
+  display: flex;
+  flex-wrap: wrap;
+}
+.heartImg li {
+  width: 20%;
+}
+
+.heartImg img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.orderItem h3 {
+  font-size: 18px;
+  padding-bottom: 15px;
+}
+
+.itemWrap {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.orderItemLI {
+  margin: 25px 0px;
+  color: #4c4c4c;
+}
+
+.myOrder {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+}
+
+.myOrder li {
+  margin: 5px 0px;
+  color: #a09d9d;
+}
+
+.listLine {
+  border: 1px solid #4c4c4c;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin: 2px 0px;
+}
+
+.giveNo button {
+  border: none;
+  background-color: #4c4c4c;
+  color: #fff;
+}
+
+.centerBtns {
+  padding: 4px 10px;
+  letter-spacing: 1.2px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.myOrderList {
+  display: flex;
+  justify-content: space-between;
+}
+tbody {
+  display: none;
+}
+.myOrder span {
+  font-size: 18px;
+}
+
+.myOrder li {
+  margin-top: 15px;
+}
