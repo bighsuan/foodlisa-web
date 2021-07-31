@@ -14,6 +14,10 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProductService } from './services/product.service';
+import { StoreService } from './services/store.service';
+import { MiddlewareService } from './services/middleware.service';
+import { ProductListComponent } from './pages/productproduct-list/product-list.component';
 
 @NgModule({
   imports: [
@@ -33,9 +37,11 @@ import { SignupComponent } from './signup/signup.component';
     ProductAddComponent,
     LoginComponent,
     FooterComponent,
-    SignupComponent
+    SignupComponent,
+    ProductListComponent
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [ProductService, StoreService, MiddlewareService]
 })
 export class AppModule {}
 

@@ -20,7 +20,9 @@ export class ProductService {
   /** GET products from the server */
   getProducts(): Observable<Product[]> {
     const url = `${this.baseUrl}/prods`;
-    return this.http.get<Product[]>(url);
+    return this.http.get<Product[]>(url).pipe(
+      catchError(this.handleError)
+    );
   }
 
   /** GET product by id. Will 404 if id not found */
@@ -70,6 +72,7 @@ export class ProductService {
       return of(result as T);
     };
   }
+  
 }
 
 /*
