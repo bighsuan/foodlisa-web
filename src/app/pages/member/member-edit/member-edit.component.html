@@ -1,0 +1,44 @@
+<div class="rightSide">
+  <div class="loader" *ngId="isLoading"></div>
+  <h2>個人帳戶管理</h2>
+  <div class="divider"></div>
+  <div class="accountWrap">
+
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="accountInfo">
+        <span>帳號</span>
+        <span>{{ controls.email }}</span>
+      </div>
+      <div class="accountInfo">
+        <span>姓氏</span>
+        <input type="text" formControlName="lastName" />
+        <!-- <span class="warningInfo">
+      <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.lastName"></i>
+      {{errMsg.lastName}}
+    </span> -->
+      </div>
+      <div class="accountInfo">
+        <span>名字</span>
+        <input type="text" formControlName="firstName" />
+        <!-- <span class="warningInfo">
+      <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.firstName"></i>
+      {{errMsg.firstName}}
+    </span> -->
+      </div>
+      <div class="accountInfo">
+        <span>電話</span>
+        <input type="text" formControlName="phone" />
+        <!-- <span class="warningInfo">
+      <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.phone"></i>
+      {{errMsg.phone}}
+    </span> -->
+      </div>
+      <button
+    class="accountBtn"
+    type="submit"
+  >確認修改</button>
+    </form>
+
+  </div>
+</div>

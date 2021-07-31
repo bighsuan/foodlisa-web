@@ -17,6 +17,9 @@ import { MiddlewareService } from './services/middleware.service';
 import { ProductListComponent } from './pages/product/product-list/product-list.component';
 import { ProductEditComponent } from './pages/product/product-edit/product-edit.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MemberEditComponent } from './pages/member/member-edit/member-edit.component';
+import { MemberInfoComponent } from './pages/member/member-info/member-info.component';
+import { MemberEditPasswordComponent } from './pages/member-edit-password/member-edit-password.component';
 
 @NgModule({
   imports: [
@@ -35,15 +38,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     FooterComponent,
     SignupComponent,
     ProductListComponent,
-    SidebarComponent
+    SidebarComponent,
+    MemberEditComponent,
+    MemberInfoComponent,
+    MemberEditPasswordComponent
   ],
   bootstrap: [AppComponent],
   providers: [ProductService, StoreService, MiddlewareService]
 })
 export class AppModule {}
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

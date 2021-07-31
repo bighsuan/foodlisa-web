@@ -7,6 +7,9 @@ import { StoreComponent } from './store/store.component';
 import { ProductEditComponent } from './pages/product/product-edit/product-edit.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProductListComponent } from './pages/product/product-list/product-list.component';
+import { MemberEditComponent } from './pages/member/member-edit/member-edit.component';
+import { MemberInfoComponent } from './pages/member/member-info/member-info.component';
+import { MemberEditPasswordComponent } from './pages/member/member-edit-passord/member-edit-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/products/1/edit', pathMatch: 'full' },
@@ -25,6 +28,18 @@ const routes: Routes = [
       {
         path: 'products/:id/edit',
         component: ProductEditComponent
+      },
+      {
+        path: 'members',
+        component: MemberInfoComponent
+      },
+      {
+        path: 'members/:id/edit',
+        component: MemberEditComponent
+      },
+      {
+        path: 'members/:id/edit/password',
+        component: MemberEditPasswordComponent
       }
     ]
   }
