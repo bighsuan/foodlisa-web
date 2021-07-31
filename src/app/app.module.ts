@@ -1,13 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {
-  FormsModule,
-  ReactiveFormsModule,
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators
-} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,10 +9,10 @@ import { AppComponent } from './app.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { StoreComponent } from './store/store.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductAddComponent } from './product-add/product-add.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './login/login.component';
-import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
 
 @NgModule({

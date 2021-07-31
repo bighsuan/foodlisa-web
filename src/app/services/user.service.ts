@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { IUser } from '../model/data';
+import { IUser } from '../models/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private user = <IUser>{};
+  private user = ({} as any) as IUser;
 
   constructor() {}
 
-  setOne(user: IUser) {
+  setUser(user: IUser) {
     this.user = Object.assign(this.user, user);
   }
 
@@ -24,6 +24,6 @@ export class UserService {
   }
 
   delUser() {
-    this.user = null;
+    this.user = ({} as any) as IUser;
   }
 }

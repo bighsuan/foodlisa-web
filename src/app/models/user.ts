@@ -5,5 +5,4 @@ export interface IUser {
   password: string;
   status: number;
   token: string;
-  holds: IHold[];//關聯"holds"
 }
