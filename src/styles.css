@@ -1,119 +1,103 @@
-/* Global Styles */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap');
+
 * {
-  font-family: Arial, Helvetica, sans-serif;
-}
-h1 {
-  color: #264d73;
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-h2,
-h3 {
-  color: #444;
-  font-weight: lighter;
-}
-h3 {
-  font-size: 1.3rem;
-}
-body {
-  padding: 0.5rem;
-  max-width: 2000px;
-  margin: auto;
-}
-@media (min-width: 600px) {
-  body {
-    padding: 0rem;
-  }
-}
-body,
-input[text] {
-  color: #333;
-  font-family: Cambria, Georgia, serif;
-}
-a {
-  cursor: pointer;
-}
-button {
-  background-color: #eee;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: black;
-  font-size: 1.2rem;
-  padding: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-}
-button:hover {
-  background-color: black;
-  color: white;
-}
-button:disabled {
-  background-color: #eee;
-  color: #aaa;
-  cursor: auto;
-}
-
-/* Navigation link styles */
-nav a {
-  padding: 5px 10px;
-  text-decoration: none;
-  margin-right: 10px;
-  margin-top: 10px;
-  display: inline-block;
-  background-color: #e8e8e8;
-  color: #3d3d3d;
-  border-radius: 4px;
-}
-
-nav a:hover {
-  color: white;
-  background-color: #42545c;
-}
-nav a.active {
-  background-color: black;
-  color: white;
-}
-hr {
-  margin: 1.5rem 0;
-}
-input[type='text'] {
+  /* outline: 1px dotted red; */
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 100%;
-  padding: 0.5rem;
 }
 
-/* Top Bar */
+/* ------------------------------giveList-------------------------- */
+html,
+body {
+  font-family: 'Noto Sans TC';
+  color: #513a50;
+}
 
-app-top-bar {
-  height: 65px;
-  background-color: #42545c;
-  padding: 0px 16px;
+.logWrap {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0px;
-  position: fixed;
-  top: 0;
+  flex-direction: column;
   width: 100%;
-  z-index: 2;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
-app-top-bar h2 {
-  color: white;
-  font-weight: bold;
+.accountLink {
+  display: flex;
+  widows: 50%;
 }
 
-app-top-bar a {
-  color: white;
-  font-weight: bold;
+.accountLink span {
+  letter-spacing: 1.2px;
+}
+
+.accountLink a {
   text-decoration: none;
+  color: #ffca7a;
 }
 
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
+.accountLink {
+  display: flex;
+  width: 10%;
+  justify-content: space-between;
+  margin: 25px 0px;
+  letter-spacing: 2.5px;
+  font-size: 16px;
+}
+
+.accountLink h4 {
+  color: #513a50;
+  font-size: 14px;
+  margin: 0;
+}
+
+.accountLink span {
+  color: #513a50;
+}
+
+.logWrap h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.accountLine {
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border: 2px solid #513a50;
+  background: #513a50;
+  width: 60px;
+}
+
+.logWrap h3 {
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+.warningInfo {
+  color: #ee0000;
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.swal2-styled.swal2-confirm {
+  background-color: #513a50;
+}
+
+/* button.swal2-styled.swal2-cancel {
+  background-color: #dc3545;
+} */
+
+/* .swal2-modal {
+  background-color: rgba(0, 0, 0, 0.651);
+  color: white;
+}
+.swal2-text {
+  color: white;
+  font-size: 33px;
+}
+.swal2-close {
+  background-color: black;
+  color: red;
+} */

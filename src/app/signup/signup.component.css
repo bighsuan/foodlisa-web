@@ -1,0 +1,38 @@
+/* ------------------------------Siginup-------------------------- */
+
+.signupBtn {
+  width: 100%;
+  background-color: #513a50;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.2;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.signupInfo {
+  margin-top: 40px;
+  min-width: 283px;
+  width: 25%;
+}
+
+.signupInfo h4 {
+  margin: 15px 0px;
+  font-size: 14px;
+}
+
+.signupInfo input {
+  width: 100%;
+  border: 1px solid #513a50;
+  border-radius: 3px;
+  height: 40px;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.accountLink a {
+  text-decoration: none;
+  color: #ffca7a;
+}

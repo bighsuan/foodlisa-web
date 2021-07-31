@@ -1,0 +1,80 @@
+<div class="wrap">
+  <div class="logWrap">
+    <div class="accountLink">
+      <a routerLink="/">HOME</a>
+      <span>/</span>
+      <span>account</span>
+    </div>
+    <h2>ACCOUNT</h2>
+    <span class="accountLine"></span>
+    <h3>SIGN UP</h3>
+
+    <div class="signupInfo">
+      <form [formGroup]="signupForm" (ngSubmit)="submit()">
+        <h4>Email地址</h4>
+        <input
+        type="email"
+        formControlName="email"
+      />
+        <span class="warningInfo">
+        <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.email"></i>
+        {{errMsg.passwordCheck}}
+      </span>
+
+        <h4>姓氏</h4>
+        <input
+      type="text"
+      formControlName="lastName"
+    />
+        <span class="warningInfo">
+      <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.lastName"></i>
+      {{errMsg.passwordCheck}}
+    </span>
+
+        <h4>名字</h4>
+        <input
+      type="text"
+      formControlName="firstName"
+    />
+        <span class="warningInfo">
+      <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.firstName"></i>
+      {{errMsg.passwordCheck}}
+    </span>
+
+        <h4>手機</h4>
+        <input
+    type="text"
+    formControlName="phone"
+  />
+        <span class="warningInfo">
+        <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.phone"></i>
+        {{errMsg.passwordCheck}}
+      </span>
+
+        <h4>密碼</h4>
+        <input
+    type="password"
+    formControlName="password"
+  />
+        <span class="warningInfo">
+        <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.password"></i>
+         {{errMsg.password}}
+      </span>
+
+        <h4>確認密碼</h4>
+        <input
+    type="password"
+    formControlName="passwordCheck"
+  />
+        <span class="warningInfo">
+      <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.passwordCheck"></i>
+        {{errMsg.passwordCheck}}
+        </span>
+        <button
+  class="signupBtn"
+  type="submit"
+>註冊</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Product } from './product';
-import { MessageService } from './message.service';
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -16,57 +15,42 @@ export class ProductService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(
-    private http: HttpClient,
-    private messageService: MessageService
-  ) {}
+  constructor(private http: HttpClient) {}
 
   /** GET products from the server */
   getProducts(): Observable<Product[]> {
     const url = `${this.baseUrl}/prods`;
-    return this.http.get<Product[]>(url).pipe(
-      tap(_ => this.log('fetched products')),
-      catchError(this.handleError<Product[]>('getProducts', []))
-    );
+    return this.http.get<Product[]>(url);
   }
 
   /** GET product by id. Will 404 if id not found */
   getProduct(id: number): Observable<Product> {
     const url = `${this.baseUrl}/prods/${id}`;
-    return this.http.get<Product>(url).pipe(
-      tap(_ => this.log(`fetched product id=${id}`)),
-      catchError(this.handleError<Product>(`getProduct id=${id}`))
-    );
+    return this.http.get<Product>(url);
   }
 
   //////// Save methods //////////
 
   /** POST: add a new product to the server */
   addProduct(postData: any): Observable<any> {
-    return this.http
-      .post<Product>(this.baseUrl+'/prods', postData, this.httpOptions).pipe(
-        tap(_ => this.log(`add product`)),
-        catchError(this.handleError<any>('updateProduct'))
-      );;
+    return this.http.post<Product>(
+      this.baseUrl + '/prods',
+      postData,
+      this.httpOptions
+    );
   }
 
   /** DELETE: delete the product from the server */
   deleteProduct(id: number): Observable<Product> {
     const url = `${this.baseUrl}/prods/${id}`;
 
-    return this.http.delete<Product>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted product id=${id}`)),
-      catchError(this.handleError<Product>('deleteProduct'))
-    );
+    return this.http.delete<Product>(url, this.httpOptions);
   }
 
   /** PUT: update the product on the server */
   updateProduct(id: number, product: Product): Observable<any> {
     const url = `${this.baseUrl}/prods/${id}`;
-    return this.http.put(url, product, this.httpOptions).pipe(
-      tap(_ => this.log(`updated product id=${product.id}`)),
-      catchError(this.handleError<any>('updateProduct'))
-    );
+    return this.http.put(url, product, this.httpOptions);
   }
 
   /**
@@ -81,16 +65,10 @@ export class ProductService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      this.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
     };
-  }
-
-  /** Log a ProductService message with the MessageService */
-  private log(message: string) {
-    this.messageService.add(`ProductService: ${message}`);
   }
 }
 
