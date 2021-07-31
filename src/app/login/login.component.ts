@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -23,7 +22,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  forgetPassword(): void {}
+  forgetPassword(): void {
+    Swal.fire('Oops', '現在還沒有這個功能喔');
+  }
 
   get controls() {
     return this.loginForm.controls;
