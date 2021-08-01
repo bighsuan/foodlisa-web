@@ -1,13 +1,13 @@
 <div class="rightSide">
   <!-- <div class="loader" *ngIf="isLoading"></div> -->
-  <h2>上架</h2>
+  <h2>上架商品</h2>
   <div class="divider"></div>
   <div class="giveWrap">
     <div class="giveDetail">
       <form [formGroup]="productForm" (ngSubmit)="submit()">
 
         <!-- 類別 -->
-        <div class="givesshelvesFormWrap">
+        <!-- <div class="givesshelvesFormWrap">
           <span>類別</span>
           <select
           name
@@ -20,7 +20,7 @@
               <option value="3C">3C</option>
               <option value="other">other</option>
           </select>
-        </div>
+        </div> -->
 
         <!-- 商品名稱 -->
         <div class="givesshelvesFormWrap">
@@ -58,7 +58,7 @@
         <div class="givesshelvesFormWrap">
           <span>上傳圖片</span>
           <input
-              type="file"
+              type="text"
               class="givesUp"
               formControlName="imageUrl"
           />
