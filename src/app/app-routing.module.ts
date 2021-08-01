@@ -9,7 +9,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { ProductListComponent } from './pages/product/product-list/product-list.component';
 import { MemberEditComponent } from './pages/member/member-edit/member-edit.component';
 import { MemberInfoComponent } from './pages/member/member-info/member-info.component';
-import { MemberEditPasswordComponent } from './pages/member/member-edit-passord/member-edit-password.component';
+import { MemberEditPasswordComponent } from './pages/member/member-edit-password/member-edit-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/products/1/edit', pathMatch: 'full' },
