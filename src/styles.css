@@ -97,6 +97,11 @@ body {
   background-color: #513a50;
 }
 
+li,
+ul {
+  list-style-type: none;
+}
+
 /* button.swal2-styled.swal2-cancel {
   background-color: #dc3545;
 } */

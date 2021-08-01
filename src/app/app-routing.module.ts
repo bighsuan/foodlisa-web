@@ -10,6 +10,7 @@ import { ProductListComponent } from './pages/product/product-list/product-list.
 import { MemberEditComponent } from './pages/member/member-edit/member-edit.component';
 import { MemberInfoComponent } from './pages/member/member-info/member-info.component';
 import { MemberEditPasswordComponent } from './pages/member/member-edit-password/member-edit-password.component';
+import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/products/1/edit', pathMatch: 'full' },
@@ -24,6 +25,14 @@ const routes: Routes = [
       {
         path: 'products', // child route path
         component: ProductListComponent
+      },
+      {
+        path: 'products/new',
+        component: ProductEditComponent
+      },
+      {
+        path: 'products/:id',
+        component: ProductDetailComponent
       },
       {
         path: 'products/:id/edit',

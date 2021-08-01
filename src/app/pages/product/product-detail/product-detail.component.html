@@ -1,0 +1,26 @@
+<div class="rightSide">
+  <!-- <loading :active.sync="isLoading"></loading> -->
+  <h2>商品明細</h2>
+  <div class="divider"></div>
+  <div class="giveWrap">
+    <img
+    [src]="product.imageUrl"
+    alt
+  />
+    <div class="divider giveLine"></div>
+    <div class="giveDetail">
+      <tbody class="giveDetail-tbody">
+        <tr>
+          <td><span class='label'>商品名稱</span><span>{{ product.name }}</span></td>
+          <td><span class='label'>商品價格</span><span>{{ product.price }}</span></td>
+          <td><span class='label'>商品描述</span><span class="giveDetail-info">{{ product.description }}</span></td>
+
+        </tr>
+      </tbody>
+
+      <button
+      class="backgivesBtn"
+      (click)="back()"
+    >查看其他送物資料</button>
+    </div>
+  </div>

@@ -1,6 +1,6 @@
 <div class="rightSide">
   <!-- <div class="loader" *ngIf="isLoading"></div> -->
-  <h2>上架商品</h2>
+  <h2>{{value.name? "新增商品": "上架商品"}}</h2>
   <div class="divider"></div>
   <div class="giveWrap">
     <div class="giveDetail">
@@ -56,15 +56,27 @@
 
         <!-- 商品圖片 -->
         <div class="givesshelvesFormWrap">
-          <span>上傳圖片</span>
-          <input
+          <span>圖片網址</span>
+          <div id="specificDiv">
+            <input
               type="text"
               class="givesUp"
               formControlName="imageUrl"
+              id="specificInput"
           />
+            <img
+          [src]="product.imageUrl"
+          alt
+        />
+          </div>
         </div>
 
         <div class="upBtn">
+          <button
+            class="shelvesBtn mx-2"
+            type="button"
+            (click)="back()"
+        >取消</button>
           <button
               class="shelvesBtn"
               type="submit"

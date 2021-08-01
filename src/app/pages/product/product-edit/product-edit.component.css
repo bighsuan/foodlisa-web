@@ -50,6 +50,26 @@
   font-size: 14px;
 }
 
+#specificDiv {
+  width: 60%;
+}
+
+#specificDiv img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+
+#specificInput {
+  width: 100%;
+  border: 1px solid #4c4c4c;
+  border-radius: 3px;
+  height: 30px;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
 .givesshelvesFormWrap .fileUpload {
   width: 18%;
   border: none;
@@ -76,6 +96,7 @@
   padding: 5px 8px;
   font-size: 14px;
   cursor: pointer;
+  margin-top: 8px;
 }
 
 .givesshelvesBtns {
@@ -154,7 +175,8 @@
 
 .giveLine {
   border: 1px solid #a09d9d;
-  width: 40%;
+  width: 70%;
+  max-width: 300px;
 }
 
 .giveDetail {
@@ -164,9 +186,7 @@
   flex-direction: column;
   font-size: 18px;
 }
-.giveDetail-info {
-  line-height: 1.2;
-}
+
 .giveDetail-tbody {
   display: block;
 }

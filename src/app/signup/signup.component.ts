@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { LoginService } from '../services/login.service';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -9,7 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class SignupComponent implements OnInit {
   signupForm = this.fb.group({
-    email: ['', Validators.email],
+    email: [''],
     firstName: [''],
     lastName: [''],
     phone: [''],
@@ -26,16 +28,24 @@ export class SignupComponent implements OnInit {
     passwordCheck: ''
   };
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private loginService: LoginService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
-  get controls() {
-    return this.signupForm.controls;
+  get value() {
+    return this.signupForm.value;
   }
 
   submit(): void {
     if (this.validation()) {
+      // this.loginService
+      //   .signup(this.value)
+      //   .subscribe(() => this.router.navigate(['/']));
       Swal.fire('OK', '註冊API');
     } else {
       Swal.fire('Oops', '請檢查輸入資料');
@@ -47,9 +57,9 @@ export class SignupComponent implements OnInit {
 
     //信箱驗證
     let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-    if (this.controls.email.value == '') {
+    if (this.value.email == '') {
       this.errMsg.email = '欄位為必填';
-    } else if (!isMail.test(this.controls.email.value)) {
+    } else if (!isMail.test(this.value.email)) {
       this.errMsg.email = 'email格式錯誤';
     } else {
       this.errMsg.email = '';
@@ -57,18 +67,18 @@ export class SignupComponent implements OnInit {
     }
 
     // 姓名 的驗證
-    if (this.controls.firstName.value == '') {
+    if (this.value.firstName == '') {
       this.errMsg.firstName = '欄位為必填';
-    } else if (this.controls.firstName.value.length > 5) {
+    } else if (this.value.firstName.length > 5) {
       this.errMsg.firstName = '請勿超過5個字';
     } else {
       this.errMsg.firstName = '';
       validNum += 1;
     }
 
-    if (this.controls.lastName.value == '') {
+    if (this.value.lastName == '') {
       this.errMsg.lastName = '欄位為必填';
-    } else if (this.controls.lastName.value.length > 5) {
+    } else if (this.value.lastName.length > 5) {
       this.errMsg.lastName = '請勿超過5個字';
     } else {
       this.errMsg.lastName = '';
@@ -76,12 +86,9 @@ export class SignupComponent implements OnInit {
     }
 
     //電話驗證
-    if (this.controls.phone.value == '') {
+    if (this.value.phone == '') {
       this.errMsg.phone = '欄位為必填';
-    } else if (
-      this.controls.phone.value.length > 10 ||
-      this.controls.phone.value.length < 10
-    ) {
+    } else if (this.value.phone.length > 10 || this.value.phone.length < 10) {
       this.errMsg.phone = '電話格式錯誤';
     } else {
       this.errMsg.phone = '';
@@ -90,13 +97,13 @@ export class SignupComponent implements OnInit {
 
     //密碼驗證
     let isPassword = /^[a-zA-Z0-9]+$/;
-    if (this.controls.password.value == '') {
+    if (this.value.password == '') {
       this.errMsg.password = '欄位為必填';
-    } else if (!isPassword.test(this.controls.password.value)) {
+    } else if (!isPassword.test(this.value.password)) {
       this.errMsg.password = '請勿包含特殊字元';
-    } else if (this.controls.password.value.length < 8) {
+    } else if (this.value.password.length < 8) {
       this.errMsg.password = '請勿少於8個字';
-    } else if (this.controls.password.value.length > 16) {
+    } else if (this.value.password.length > 16) {
       this.errMsg.password = '請勿超過16個字';
     } else {
       this.errMsg.password = '';
@@ -104,11 +111,9 @@ export class SignupComponent implements OnInit {
     }
 
     //密碼驗證
-    if (this.controls.passwordCheck.value == '') {
+    if (this.value.passwordCheck == '') {
       this.errMsg.passwordCheck = '欄位為必填';
-    } else if (
-      this.controls.password.value != this.controls.passwordCheck.value
-    ) {
+    } else if (this.value.password != this.value.passwordCheck) {
       this.errMsg.passwordCheck = '兩次密碼不相同';
     } else {
       this.errMsg.passwordCheck = '';

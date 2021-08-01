@@ -7,11 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { StoreComponent } from './store/store.component';
-import { LoginComponent  } from './login/login.component';
+import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProductService } from './services/product.service';
 import { StoreService } from './services/store.service';
-import { MiddlewareService } from './services/middleware.service';
 import { ProductListComponent } from './pages/product/product-list/product-list.component';
 import { ProductEditComponent } from './pages/product/product-edit/product-edit.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -22,6 +21,8 @@ import { SidebarChildComponent } from './components/sidebar-child/sidebar-child.
 import { MemberEditPasswordComponent } from './pages/member/member-edit-password/member-edit-password.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ApiService } from './services/api.service';
+import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 
 @NgModule({
   imports: [
@@ -45,9 +46,10 @@ import { FooterComponent } from './components/footer/footer.component';
     MemberInfoComponent,
     MemberEditPasswordComponent,
     SidebarParentComponent,
-    SidebarChildComponent
+    SidebarChildComponent,
+    ProductDetailComponent
   ],
   bootstrap: [AppComponent],
-  providers: [ProductService, StoreService, MiddlewareService]
+  providers: [ProductService, StoreService, ApiService]
 })
 export class AppModule {}

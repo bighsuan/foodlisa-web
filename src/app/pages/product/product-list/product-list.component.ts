@@ -27,12 +27,8 @@ export class ProductListComponent implements OnInit {
       .subscribe((products: IProduct[]) => (this.products = products));
   }
 
-  delProduct(): void {
-    Swal.fire('OK', '刪除API');
-
-    // this.productService
-    //   .deleteProduct(id)
-    //   .subscribe(() => );
-    //   ;
+  delProduct(id: number): void {
+    Swal.fire('OK', '刪除成功');
+      this.productService.deleteProduct(id).subscribe(() => this.getProducts());
   }
 }
