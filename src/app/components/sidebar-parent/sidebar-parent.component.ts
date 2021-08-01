@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,ContentChild } from '@angular/core';
+import { Component, OnInit, Input, ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-parent',
@@ -6,13 +6,20 @@ import { Component, OnInit, Input,ContentChild } from '@angular/core';
   styleUrls: ['./sidebar-parent.component.css']
 })
 export class SidebarParentComponent implements OnInit {
-  @Input()
-  title: string | undefined;
+  _item: string | undefined;
+
+  // @Input()
+  // public set item(item: string) {
+  //   this._item = item;
+  // }
+
+  tt = '456789';
+
   // @ContentChild(ChildComponent)
   //   child:ChildComponent;
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    console.log(this.tt);
   }
-
 }
