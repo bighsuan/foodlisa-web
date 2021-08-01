@@ -62,6 +62,7 @@
 .upBtn {
   display: flex;
   justify-content: flex-end;
+  margin-top: 15px;
   margin-bottom: 15px;
   cursor: pointer;
 }
@@ -137,4 +138,116 @@
 .heartName {
   font-size: 18px;
   padding-left: 60px;
+}
+
+/* ------------------------------GetOrderDetail/GiveOrderDetail-------------------------- */
+.giveWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0px;
+}
+
+.giveWrap img {
+  width: 200px;
+}
+
+.giveLine {
+  border: 1px solid #a09d9d;
+  width: 40%;
+}
+
+.giveDetail {
+  width: 90%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+.giveDetail-info {
+  line-height: 1.2;
+}
+.giveDetail-tbody {
+  display: block;
+}
+.giveDetail-tbody tr {
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.giveDetail-tbody td {
+  border-right: 1px solid #999;
+  border-bottom: 1px solid #999;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+}
+.checkGiveOrderBtn {
+  background-color: #4c4c4c;
+  border-radius: 4px;
+  color: #fff;
+  letter-spacing: 1.2px;
+  padding: 8px 12px;
+  margin: 15px 0px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.getngive {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0px;
+  width: 100%;
+}
+
+.storySpan {
+  width: 30%;
+  text-align: justify;
+}
+
+.getBtns button {
+  background-color: #4c4c4c;
+  color: #fff;
+  margin: 0px 10px;
+  white-space: nowrap;
+}
+
+.getBtns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+  cursor: pointer;
+}
+
+.noRequestBtn,
+.checkGetOrderBtn {
+  background-color: #4c4c4c;
+  border-radius: 4px;
+  color: #fff;
+  letter-spacing: 1.2px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.giveBtns {
+  width: 35%;
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.cancelBtn,
+.getBtn,
+.doneBtn {
+  background-color: #4c4c4c;
+  border-radius: 4px;
+  color: #fff;
+  letter-spacing: 1.2px;
+  padding: 5px 8px;
+  cursor: pointer;
+  margin-left: 2px;
 }

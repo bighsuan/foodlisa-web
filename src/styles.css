@@ -77,6 +77,16 @@ body {
   letter-spacing: 3px;
 }
 
+.divider {
+  border: 2px solid #4c4c4c;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin: 20px 0px;
+}
+
+/* add by lisa */
+
 .warningInfo {
   color: #ee0000;
   margin-top: 4px;
