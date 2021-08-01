@@ -7,9 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { StoreComponent } from './store/store.component';
-import { TopBarComponent } from './components/top-bar/top-bar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent  } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProductService } from './services/product.service';
 import { StoreService } from './services/store.service';
@@ -22,6 +20,8 @@ import { MemberInfoComponent } from './pages/member/member-info/member-info.comp
 import { SidebarParentComponent } from './components/sidebar-parent/sidebar-parent.component';
 import { SidebarChildComponent } from './components/sidebar-child/sidebar-child.component';
 import { MemberEditPasswordComponent } from './pages/member/member-edit-password/member-edit-password.component';
+import { TopBarComponent } from './components/top-bar/top-bar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   imports: [
