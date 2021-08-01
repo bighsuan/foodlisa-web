@@ -13,7 +13,7 @@ import { MemberEditPasswordComponent } from './pages/member/member-edit-password
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/products/1/edit', pathMatch: 'full' },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: 'store/:id', component: StoreComponent },
 
   { path: 'login', component: LoginComponent },
