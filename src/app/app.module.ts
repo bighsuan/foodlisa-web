@@ -19,7 +19,9 @@ import { ProductEditComponent } from './pages/product/product-edit/product-edit.
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MemberEditComponent } from './pages/member/member-edit/member-edit.component';
 import { MemberInfoComponent } from './pages/member/member-info/member-info.component';
-import { MemberEditPasswordComponent } from './pages/member-edit-password/member-edit-password.component';
+import { SidebarParentComponent } from './components/sidebar-parent/sidebar-parent.component';
+import { SidebarChildComponent } from './components/sidebar-child/sidebar-child.component';
+import { MemberEditPasswordComponent } from './pages/member/member-edit-password/member-edit-password.component';
 
 @NgModule({
   imports: [
@@ -41,7 +43,9 @@ import { MemberEditPasswordComponent } from './pages/member-edit-password/member
     SidebarComponent,
     MemberEditComponent,
     MemberInfoComponent,
-    MemberEditPasswordComponent
+    MemberEditPasswordComponent,
+    SidebarParentComponent,
+    SidebarChildComponent
   ],
   bootstrap: [AppComponent],
   providers: [ProductService, StoreService, MiddlewareService]
