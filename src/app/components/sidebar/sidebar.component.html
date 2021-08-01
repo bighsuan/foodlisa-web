@@ -9,12 +9,15 @@
       <a class="nav-link" [routerLink]="['/']">會員中心</a>
       <a class="nav-link" [routerLink]="['products', '1', 'edit']">訂單管理</a>
       <a class="nav-link" [routerLink]="['products']">商品管理</a>
-      <a class="nav-link disabled" [routerLink]="['/']" tabindex="-1"
-        >會員登出</a
-      >
+      <a class="nav-link disabled" [routerLink]="['/']" tabindex="-1">會員登出</a>
     </nav>
   </div>
   <div class="col-9">
     <router-outlet></router-outlet>
   </div>
+</div>
+
+
+<!-- 手機板 -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="myOffcanvas" aria-labelledby="myOffcanvas">
 </div>
