@@ -11,16 +11,16 @@ export class ProductEditComponent implements OnInit {
   productForm = this.fb.group({
     category: [''],
     name: [''],
-    description: [''],
     price: [''],
+    description: [''],
     imageUrl: ['']
   });
 
   errMsg = {
     category: '',
     name: '',
-    description: '',
     price: '',
+    description: '',
     imageUrl: ''
   };
 

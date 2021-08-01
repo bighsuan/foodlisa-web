@@ -5,7 +5,7 @@ nav a {
   text-decoration: none;
 }
 
-nav a:hover {
+#logo:hover {
   color: #513a50;
 }
 
@@ -15,4 +15,13 @@ nav div a:hover {
 
 nav {
   max-width: 1300px;
+  justify-content: space-between;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.left-group {
+  vertical-align:middle
 }

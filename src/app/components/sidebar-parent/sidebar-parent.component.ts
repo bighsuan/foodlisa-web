@@ -6,20 +6,10 @@ import { Component, OnInit, Input, ContentChild } from '@angular/core';
   styleUrls: ['./sidebar-parent.component.css']
 })
 export class SidebarParentComponent implements OnInit {
-  _item: string | undefined;
+  @Input()
+  title: string | undefined;
 
-  // @Input()
-  // public set item(item: string) {
-  //   this._item = item;
-  // }
-
-  tt = '456789';
-
-  // @ContentChild(ChildComponent)
-  //   child:ChildComponent;
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.tt);
-  }
+  ngOnInit() {}
 }
