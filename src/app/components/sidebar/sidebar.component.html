@@ -1,8 +1,9 @@
-<div class="page mx-auto row container-fluid">
+<div class="page mx-auto my-4 row container-fluid">
   <div class="col-3 d-none d-md-block">
     <nav class="nav flex-column">
       <app-sidebar-parent title="會員中心">
-        <app-sidebar-child title="個人帳戶管理"></app-sidebar-child>
+        <app-sidebar-child title="個人帳戶管理" routerLink="['/']">
+        </app-sidebar-child>
         <app-sidebar-child title="修改密碼"></app-sidebar-child>
       </app-sidebar-parent>
       <app-sidebar-parent title="店家資訊">
@@ -14,8 +15,10 @@
         <app-sidebar-child title="接單統計"></app-sidebar-child>
       </app-sidebar-parent>
       <app-sidebar-parent title="商品管理">
-        <app-sidebar-child title="商品列表"></app-sidebar-child>
-        <app-sidebar-child title="新增商品"></app-sidebar-child>
+        <app-sidebar-child title="商品列表" routerLink="['/products']">
+        </app-sidebar-child>
+        <app-sidebar-child title="新增商品" >
+        </app-sidebar-child>
       </app-sidebar-parent>
       <a class="nav-link disabled" [routerLink]="['/']" tabindex="-1">會員登出</a>
     </nav>

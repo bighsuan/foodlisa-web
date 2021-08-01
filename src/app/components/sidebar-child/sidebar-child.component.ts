@@ -6,13 +6,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./sidebar-child.component.css']
 })
 export class SidebarChildComponent implements OnInit {
-
   @Input()
   title: string | undefined;
-  
-  constructor() { }
 
-  ngOnInit() {
-  }
+  @Input()
+  routerLink: string | undefined;
 
+  constructor() {}
+
+  ngOnInit() {}
 }
