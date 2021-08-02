@@ -23,6 +23,7 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ApiService } from './services/api.service';
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
+import { NavigateDrawerComponent } from './components/navigate-drawer/navigate-drawer.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { ProductDetailComponent } from './pages/product/product-detail/product-d
     MemberEditPasswordComponent,
     SidebarParentComponent,
     SidebarChildComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    NavigateDrawerComponent
   ],
   bootstrap: [AppComponent],
   providers: [ProductService, StoreService, ApiService]
