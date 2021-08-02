@@ -1,9 +1,24 @@
-<li class="dropdown btn-group dropend">
-  <button type="button" class="m-2 btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" disabled>
-    {{title}}
-</button>
-  <ul class="dropdown-menu dropdown-menu-right">
-    <!-- 插入sidebar-child內容 -->
+<!-- my-2 ps-0 -->
+
+
+
+
+
+<!-- <div class="btn-group dropend">
+  <a class="nav-link dropdown-toggle dropbtn" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+    aria-expanded="false">{{title}}</a>
+
+  <ul class="dropdown-menu">
     <ng-content></ng-content>
   </ul>
-</li>
+</div> -->
+
+
+<div class="dropdown btn-group dropend">
+  <button type="button" class="dropbtn btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+{{title}}
+</button>
+  <div class="dropdown-menu">
+    <ng-content></ng-content>
+  </div>
+</div>
