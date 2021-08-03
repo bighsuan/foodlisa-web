@@ -1,6 +1,10 @@
-<li [class]="active">
-  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">{{title}}</a>
-  <ul class="list-unstyled collapse" id="#homeSubmenu" [class.show]="show" style="">
-    <ng-content></ng-content>
-  </ul>
-</li>
+<p>
+  <a class="btn" data-bs-toggle="collapse" href="{{'#' + title}}" role="button" aria-expanded="false"
+    aria-controls="collapseExample">
+    {{title}}
+  </a>
+</p>
+<div class="collapse" [id]="title">
+  <!-- child -->
+  <ng-content></ng-content>
+</div>
