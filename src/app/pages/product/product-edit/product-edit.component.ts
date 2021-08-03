@@ -109,6 +109,7 @@ export class ProductEditComponent implements OnInit {
   }
 
   back() {
-    this.location.back();
+    // this.location.back();
+    this.router.navigate(['/products']);
   }
 }

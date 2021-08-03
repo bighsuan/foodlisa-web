@@ -39,7 +39,7 @@ const routes: Routes = [
         component: ProductEditComponent
       },
       {
-        path: 'members',
+        path: 'profile',
         component: MemberInfoComponent
       },
       {

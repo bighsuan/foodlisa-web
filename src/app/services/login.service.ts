@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
+import { StorageService } from './storage.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +15,11 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private storageService: StorageService) {}
 
-  login() {}
+  login() {
+  }
 
   logout() {}
   // login(postData: any): Observable<any>{
@@ -26,7 +30,7 @@ export class LoginService {
   //     postData,
   //     this.httpOptions
   //   ).pipe(catchError(this.handleError)
-  //   .subscribe());
+  //   .subscribe(token => this.storageService.setUser(token)));
   // }
 
   // logout(): Observable<any> {

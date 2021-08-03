@@ -1,10 +1,10 @@
-<p>
+<div>
   <a class="btn" data-bs-toggle="collapse" href="{{'#' + title}}" role="button" aria-expanded="false"
     aria-controls="collapseExample">
     {{title}}
   </a>
-</p>
-<div class="collapse" [id]="title">
+</div>
+<div class="collapse ms-2" [id]="title">
   <!-- child -->
   <ng-content></ng-content>
 </div>
