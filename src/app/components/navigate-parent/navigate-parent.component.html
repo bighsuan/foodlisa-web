@@ -1,0 +1,6 @@
+<li [class]="active">
+  <a data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">{{title}}</a>
+  <ul class="list-unstyled collapse"  [class.show]="show" style="">
+      <ng-content></ng-content>
+  </ul>
+</li>
