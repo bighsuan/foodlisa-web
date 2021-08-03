@@ -23,7 +23,9 @@ import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ApiService } from './services/api.service';
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
-import { NavigateDrawerComponent } from './components/navigate-drawer/navigate-drawer.component';
+import { NavigateComponent } from './components/navigate/navigate.component';
+import { NavigateParentComponent } from './components/navigate-parent/navigate-parent.component';
+import { NavigateChildComponent } from './components/navigate-child/navigate-child.component';
 
 @NgModule({
   imports: [
@@ -49,7 +51,9 @@ import { NavigateDrawerComponent } from './components/navigate-drawer/navigate-d
     SidebarParentComponent,
     SidebarChildComponent,
     ProductDetailComponent,
-    NavigateDrawerComponent
+    NavigateComponent,
+    NavigateParentComponent,
+    NavigateChildComponent
   ],
   bootstrap: [AppComponent],
   providers: [ProductService, StoreService, ApiService]
