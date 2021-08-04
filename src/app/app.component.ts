@@ -19,14 +19,14 @@ export class AppComponent implements OnInit {
     }
   }
 
-  setToken(token: string) {
-    if (!!token) {
-      this.userService.setToken(token);
-    }
-  }
+  // setToken(token: string) {
+  //   if (!!token) {
+  //     this.userService.setToken(token);
+  //   }
+  // }
 
-  setLogin(account: string) {
-    // this.storageService.setKey(account);
-    this.loginService.login();
-  }
+  // setLogin(account: string) {
+  //   // this.storageService.setKey(account);
+  //   this.loginService.login();
+  // }
 }
