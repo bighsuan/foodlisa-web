@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
   private user: any;
+  redirectUrl:string|null=null;
 
   constructor() {}
 

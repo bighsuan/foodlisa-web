@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import {JSEncrypt} from "jsencrypt";
+import { UserService } from './user.service';
 
 
 @Injectable({
@@ -18,7 +19,8 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private userService: UserService) {}
 
 
   getPublicKey():  Observable<any>{
@@ -49,7 +51,9 @@ export class LoginService {
     ).pipe(catchError(this.handleError));
   }
 
-  logout() {}
+  logout() {
+    this.userService.delUser();
+  }
 
   // logout(): Observable<any> {
   //   const url = `${this.baseUrl}/sessions`;
