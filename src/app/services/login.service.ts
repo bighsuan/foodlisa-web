@@ -6,7 +6,6 @@ import { UserService } from './user.service';
 import * as JsEncryptModule from 'jsencrypt';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -51,16 +50,14 @@ export class LoginService {
 
   }
 
-  login(postData: any): a{
+  login(postData: any): Observable<any>{
     this.getPublicKey()
-    .subscribe(publicKey => this.publicKey = publicKey,
-      err => console.log(''),
-      () => this.getToken(postData).subscribe(
-        (user) => this.userService.setUser(user)));
+    .subscribe(publicKey => this.publicKey = publicKey);
+    return this.getToken(postData)
   }
 
   logout() {
-    this.userService.delUser();
+    this.userService.delUser();  
   }
 
   // logout(): Observable<any> {
