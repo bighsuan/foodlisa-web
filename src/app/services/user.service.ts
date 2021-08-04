@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  private user: any;
+  private user = {"userId": '', 'token': ''};
   redirectUrl:string|null=null;
 
   constructor() {}
@@ -24,6 +24,6 @@ export class UserService {
   }
 
   delUser() {
-    this.user = {};
+    this.user = {"userId": '', 'token': ''};;
   }
 }

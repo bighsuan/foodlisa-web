@@ -11,12 +11,12 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
-    email: [''],
+    phone: [''],
     password: ['']
   });
 
   errMsg = {
-    email: '',
+    phone: '',
     password: ''
   };
 
@@ -51,14 +51,13 @@ export class LoginComponent implements OnInit {
   validation(): boolean {
     let validNum = 0;
 
-    //信箱驗證
-    let isMail = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
-    if (this.value.email == '') {
-      this.errMsg.email = '欄位為必填';
-    } else if (!isMail.test(this.value.email)) {
-      this.errMsg.email = 'email格式錯誤';
+    //電話驗證
+    if (this.value.phone == '') {
+      this.errMsg.phone = '欄位為必填';
+    } else if (this.value.phone.length > 10 || this.value.phone.length < 10) {
+      this.errMsg.phone = '電話格式錯誤';
     } else {
-      this.errMsg.email = '';
+      this.errMsg.phone = '';
       validNum += 1;
     }
 

@@ -8,15 +8,15 @@ import { UserService } from './services/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Foodlisa';
+  title = 'FOODLISA';
   constructor(
     private loginService: LoginService,
     private userService: UserService
   ) {}
 
   ngOnInit() {
-    if (!this.userService.getUser().token) {
-    }
+    // if (!this.userService.getUser().token) {
+    // }
   }
 
   // setToken(token: string) {
