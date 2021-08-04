@@ -12,8 +12,8 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
-    phone: [''],
-    password: ['']
+    phone: ['0922764336'],
+    password: ['123']
   });
 
   errMsg = {
