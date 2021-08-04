@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { UserService } from './user.service';
-import { JSEncrypt } from 'jsencrypt';
+import * as JsEncryptModule from 'jsencrypt';
 
 
 
@@ -15,7 +15,7 @@ export class LoginService {
   // private baseUrl = "http://localhost/api/v1";
 
   publicKey: string|null = null;
-  encrypt = new JSEncrypt();
+  encrypt = new JsEncryptModule.JSEncrypt();
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,7 +27,7 @@ export class LoginService {
 
   getPublicKey():  Observable<any>{
       
-      const url = `/publickey`;
+      const url = `/publickey`; 
 
       return this.http.get<any>(this.baseUrl+url).pipe(catchError(this.handleError));
   }
