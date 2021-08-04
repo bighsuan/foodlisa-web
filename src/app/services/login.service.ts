@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { UserService } from './user.service';
-// import * as JsEncryptModule from 'jsencrypt';
 import { JSEncrypt } from 'jsencrypt';
 
 
@@ -16,6 +15,7 @@ export class LoginService {
   // private baseUrl = "http://localhost/api/v1";
 
   publicKey: string|null = null;
+  encrypt = new JSEncrypt();
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -33,12 +33,12 @@ export class LoginService {
   }
 
   getToken(postData:any):Observable<any>{
-    var encrypt = new JSEncrypt.();
+    
     if(this.publicKey != null)
     {
-      console.log(encrypt);
-      encrypt.setPublicKey(this.publicKey);
-      let encodePassword = encrypt.encrypt(postData.password);
+      console.log(this.encrypt);
+      this.encrypt.setPublicKey(this.publicKey);
+      let encodePassword = this.encrypt.encrypt(postData.password);
       console.log(encodePassword);
       postData.password = encodePassword;
     }
