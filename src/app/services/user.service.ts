@@ -4,16 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  private user = {"userId": '', 'token': ''};
+  private user = {"id": '', 'token': ''};
   redirectUrl:string|null=null;
 
   constructor() {}
 
-  setUser(user: any) {
-    this.user = Object.assign(this.user, user);
-  }
-
-  setToken(token: string) {
+  setUser(token: string) {
     this.user = Object.assign(this.user, {
       Token: token
     });
@@ -24,6 +20,6 @@ export class UserService {
   }
 
   delUser() {
-    this.user = {"userId": '', 'token': ''};;
+    this.user = {"id": '', 'token': ''};;
   }
 }
