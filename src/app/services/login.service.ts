@@ -9,7 +9,8 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class LoginService {
-  private baseUrl = 'https://foodlisa.sytes.net/api/v2';
+  // private baseUrl = 'https://foodlisa.sytes.net/api/v1';
+  private baseUrl = "http://localhost/api/v1";
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -17,6 +18,15 @@ export class LoginService {
 
   constructor(private http: HttpClient,
     private storageService: StorageService) {}
+
+
+  getPublicKey(): void{
+      
+      const url = `/publickey`;
+
+      this.http.get<any>(this.baseUrl+url)
+      .subscribe(publicKey => this.storageService.setPublicKey(publicKey));
+  }
 
   login() {
   }
@@ -49,4 +59,6 @@ export class LoginService {
       return of(result as T);
     };
   }
+
+  
 }

@@ -27,7 +27,9 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loginService.getPublicKey();
+  }
 
   forgetPassword(): void {
     Swal.fire('Oops', '現在還沒有這個功能喔');
