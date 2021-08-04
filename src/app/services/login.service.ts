@@ -3,7 +3,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { UserService } from './user.service';
-import * as JsEncryptModule from 'jsencrypt';
+// import * as JsEncryptModule from 'jsencrypt';
+import { JSEncrypt } from 'jsencrypt';
+
 
 
 @Injectable({
@@ -31,7 +33,7 @@ export class LoginService {
   }
 
   getToken(postData:any):Observable<any>{
-    let encrypt = new JsEncryptModule.JSEncrypt();
+    var encrypt = new JSEncrypt.();
     if(this.publicKey != null)
     {
       console.log(encrypt);
