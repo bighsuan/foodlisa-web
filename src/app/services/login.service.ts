@@ -9,39 +9,39 @@ import { StorageService } from './storage.service';
   providedIn: 'root'
 })
 export class LoginService {
-  // private baseUrl = 'https://foodlisa.sytes.net/api/v1';
-  private baseUrl = "http://localhost/api/v1";
+  private baseUrl = 'https://foodlisa.sytes.net/api/v1';
+  // private baseUrl = "http://localhost/api/v1";
+
+  publicKey: string|null = null;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient,
-    private storageService: StorageService) {}
+  constructor(private http: HttpClient) 
 
 
-  getPublicKey(): void{
+  getPublicKey():  Observable<any>{
       
       const url = `/publickey`;
 
-      this.http.get<any>(this.baseUrl+url)
-      .subscribe(publicKey => this.storageService.setPublicKey(publicKey));
+      return this.http.get<any>(this.baseUrl+url).pipe(catchError(this.handleError));
   }
 
-  login() {
+  login(postData: any): Observable<any>{
+    this.getPublicKey()
+    .subscribe(publicKey => this.publicKey = publicKey);
+
+    const url = `${this.baseUrl}/sessions`;
+
+    return this.http.post<any>(
+      url,
+      postData,
+      this.httpOptions
+    ).pipe(catchError(this.handleError));
   }
 
   logout() {}
-  // login(postData: any): Observable<any>{
-  //   const url = `${this.baseUrl}/sessions`;
-
-  //   return this.http.post<any>(
-  //     url,
-  //     postData,
-  //     this.httpOptions
-  //   ).pipe(catchError(this.handleError)
-  //   .subscribe(token => this.storageService.setUser(token)));
-  // }
 
   // logout(): Observable<any> {
   //   const url = `${this.baseUrl}/sessions`;
