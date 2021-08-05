@@ -3,12 +3,19 @@
     <button class="btn navbar-toggler py-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#myOffcanvas" aria-controls="myOffcanvas">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a id="logo" class="logo" href="/">{{title}}</a>
+    <a id="logo" class="logo" routerLink="/">{{title}}</a>
   </div>
+  <div>{{id}}</div>
   <div class="mx-4">
-    <a href="/login">
-      LOGIN <i class="far fa-user-circle fa-lg"></i>
+    <a *ngIf="id; else elseTmpl" (click)="logout">
+      LOGOUT <i class="far fa-user-circle fa-lg"></i>
     </a>
+    <ng-template #elseTmpl>
+      <a routerLink="/login">
+        LOGIN <i class="far fa-user-circle fa-lg"></i>
+      </a>
+    </ng-template>
+
   </div>
 </nav>
 

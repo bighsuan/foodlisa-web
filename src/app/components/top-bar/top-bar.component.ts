@@ -10,10 +10,17 @@ export class TopBarComponent implements OnInit {
   @Input()
   title: string | undefined;
   userName: string | undefined;
+  id: string | undefined;
 
   constructor(private storageService: StorageService) {}
 
   ngOnInit() {
+    this.id = this.storageService.getId();
+    console.log(this.id);
     this.userName = this.storageService.getName();
+  }
+
+  logout() {
+    this.storageService.delToken();
   }
 }

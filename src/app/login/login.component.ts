@@ -13,7 +13,7 @@ import { StorageService } from '../services/storage.service';
 export class LoginComponent implements OnInit {
   loginForm = this.fb.group({
     phone: ['0922764336'],
-    password: ['123']
+    password: ['123123123']
   });
 
   errMsg = {

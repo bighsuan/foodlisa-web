@@ -73,29 +73,30 @@ export class ProductEditComponent implements OnInit {
     if (this.validation()) {
       // 組資料＆轉換價格type
       let price: number = +this.value.price;
+      let userId: number = +this.storageService.getId();
       let body = {
-        storeId: this.storageService.getId(),
+        userId: userId,
         name: this.value.name,
         description: this.value.description,
         price: price,
         imageUrl: this.value.imageUrl
       };
 
+      console.log(body);
+
       // 修改
       if (this.route.snapshot.paramMap.get('id') != null) {
-        this.productService
-          .updateProduct(this.product.id, this.value)
-          .subscribe(
-            product =>
-              Swal.fire({
-                title: 'OK',
-                text: '修改成功',
-                confirmButtonText: `返回商品列表`
-              }).then(result => {
-                this.location.back();
-              }),
-            error => Swal.fire('Oops', '修改失敗')
-          );
+        this.productService.updateProduct(this.product.id, body).subscribe(
+          product =>
+            Swal.fire({
+              title: 'OK',
+              text: '修改成功',
+              confirmButtonText: `返回商品列表`
+            }).then(result => {
+              this.location.back();
+            }),
+          error => Swal.fire('Oops', '修改失敗')
+        );
       }
       // 新增
       else {

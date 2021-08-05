@@ -12,22 +12,29 @@ export class ProductService {
   // private baseUrl = "http://localhost/api/v1";
 
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json',
-    Authorization: 'Bearer '+this.storageService.getToken() })
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + this.storageService.getToken()
+    })
   };
 
-  constructor(private http: HttpClient, private storageService: StorageService) {}
+  constructor(
+    private http: HttpClient,
+    private storageService: StorageService
+  ) {}
 
   /** GET products from the server */
   getProducts(): Observable<IProduct[]> {
     const url = `${this.baseUrl}/prods`;
-    return this.http.get<IProduct[]>(url,this.httpOptions).pipe(catchError(this.handleError));
+    return this.http
+      .get<IProduct[]>(url, this.httpOptions)
+      .pipe(catchError(this.handleError));
   }
 
   /** GET product by id. Will 404 if id not found */
   getProduct(id: number): Observable<IProduct> {
     const url = `${this.baseUrl}/prods/${id}`;
-    return this.http.get<IProduct>(url);
+    return this.http.get<IProduct>(url, this.httpOptions);
   }
 
   /** POST: add a new product to the server */
@@ -47,7 +54,7 @@ export class ProductService {
   }
 
   /** PUT: update the product on the server */
-  updateProduct(id: number, product: IProduct): Observable<any> {
+  updateProduct(id: number, product: any): Observable<any> {
     const url = `${this.baseUrl}/prods/${id}`;
     return this.http.put(url, product, this.httpOptions);
   }
