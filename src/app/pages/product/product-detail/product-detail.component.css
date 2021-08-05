@@ -6,7 +6,7 @@
 }
 
 .updateBtn {
-  background-color: #4c4c4c;
+  background-color: #513A50;
   border-radius: 4px;
   color: #fff;
   padding: 8px 16px;
@@ -34,7 +34,7 @@
 
 .getngive input {
   width: 60%;
-  border: 1px solid #4c4c4c;
+  border: 1px solid #513A50;
   border-radius: 3px;
   height: 30px;
   padding-left: 10px;
@@ -43,7 +43,7 @@
 
 .givesshelvesFormWrap input {
   width: 60%;
-  border: 1px solid #4c4c4c;
+  border: 1px solid #513A50;
   border-radius: 3px;
   height: 30px;
   padding-left: 10px;
@@ -68,7 +68,7 @@
 }
 
 .shelvesBtn {
-  background-color: #4c4c4c;
+  background-color: #513A50;
   color: #fff;
   width: 30%;
   border-radius: 4px;
@@ -90,7 +90,7 @@
 }
 
 .givesDetailBtn {
-  background-color: #4c4c4c;
+  background-color: #513A50;
   border-radius: 4px;
   color: #fff;
   letter-spacing: 1.2px;
@@ -100,7 +100,7 @@
 }
 
 .editBtn {
-  background-color: #4c4c4c;
+  background-color: #513A50;
   color: #fff;
   border-radius: 4px;
   letter-spacing: 1.2px;
@@ -190,7 +190,7 @@
   justify-content: space-between;
 }
 .checkGiveOrderBtn {
-  background-color: #4c4c4c;
+  background-color: #513A50;
   border-radius: 4px;
   color: #fff;
   letter-spacing: 1.2px;
@@ -213,7 +213,7 @@
 }
 
 .getBtns button {
-  background-color: #4c4c4c;
+  background-color: #513A50;
   color: #fff;
   margin: 0px 10px;
   white-space: nowrap;
@@ -230,7 +230,7 @@
 
 .noRequestBtn,
 .checkGetOrderBtn {
-  background-color: #4c4c4c;
+  background-color: #513A50;
   border-radius: 4px;
   color: #fff;
   letter-spacing: 1.2px;
@@ -248,7 +248,7 @@
 .cancelBtn,
 .getBtn,
 .doneBtn {
-  background-color: #4c4c4c;
+  background-color: #513A50;
   border-radius: 4px;
   color: #fff;
   letter-spacing: 1.2px;
@@ -260,7 +260,7 @@
 /* ------------------------------GivesDetail-------------------------- */
 
 .backgivesBtn {
-  background-color: #4c4c4c;
+  background-color: #513A50;
   color: #fff;
   border-radius: 4px;
   letter-spacing: 1.2px;

@@ -7,7 +7,7 @@
   </div>
   <div>{{id}}</div>
   <div class="mx-4">
-    <a *ngIf="id; else elseTmpl" (click)="logout">
+    <a *ngIf="*ngIf="(authenticationService.authenticated$ | async) === false"; else elseTmpl" (click)="logout">
       LOGOUT <i class="far fa-user-circle fa-lg"></i>
     </a>
     <ng-template #elseTmpl>

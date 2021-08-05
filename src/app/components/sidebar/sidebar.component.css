@@ -35,12 +35,12 @@
   padding: 12px 0px;
   font-size: 20px;
   font-weight: 500;
-  color: #4c4c4c;
+  color: #513a50;
 }
 
 .memberCenter {
   color: #ffffff;
-  background-color: #4c4c4c;
+  background-color: #513a50;
 }
 
 .memberInfoList {
@@ -71,7 +71,7 @@
   padding: 12px 10px;
   font-size: 20px;
   font-weight: 500;
-  color: #4c4c4c;
+  color: #513a50;
 }
 
 .memberEachOrder {
@@ -98,7 +98,7 @@
   padding: 12px 10px;
   font-size: 20px;
   font-weight: 500;
-  color: #4c4c4c;
+  color: #513a50;
 }
 
 .orderList:hover .memberEachOrder {
@@ -156,7 +156,7 @@
 
 .orderItemLI {
   margin: 25px 0px;
-  color: #4c4c4c;
+  color: #513a50;
 }
 
 .myOrder {
@@ -171,7 +171,7 @@
 }
 
 .listLine {
-  border: 1px solid #4c4c4c;
+  border: 1px solid #513a50;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -180,7 +180,7 @@
 
 .giveNo button {
   border: none;
-  background-color: #4c4c4c;
+  background-color: #513a50;
   color: #fff;
 }
 

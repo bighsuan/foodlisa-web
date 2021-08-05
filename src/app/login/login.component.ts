@@ -47,8 +47,6 @@ export class LoginComponent implements OnInit {
         err => Swal.fire('Oops', '登入失敗, 請檢查手機和密碼喔'),
         () =>
           Swal.fire('OK', '登入成功').then(() => {
-            console.log('login.service-------------------');
-            console.log(this.storageService.getUser());
             this.router.navigate(['/products']);
           })
       );
