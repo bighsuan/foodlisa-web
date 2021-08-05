@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '../../../store';
-import { STORE } from '../../../mock-store';
+tores;
 import { ProductService } from '../../../services/product.service';
 import { IProduct } from '../../../models/product';
 import Swal from 'sweetalert2';
@@ -11,8 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  store: Store = STORE;
-  products: IProduct[] = [];
+  stores: IProduct[] = [];
   isLoading = false;
 
   constructor(private productService: ProductService) {}
@@ -24,11 +22,11 @@ export class ProductListComponent implements OnInit {
   getProducts(): void {
     this.productService
       .getProducts()
-      .subscribe((products: IProduct[]) => (this.products = products));
+      .subscribe((stores: IProduct[]) => (this.stores = stores));
   }
 
   delProduct(id: number): void {
     Swal.fire('OK', '刪除成功');
-      this.productService.deleteProduct(id).subscribe(() => this.getProducts());
+    this.productService.deleteProduct(id).subscribe(() => this.getProducts());
   }
 }

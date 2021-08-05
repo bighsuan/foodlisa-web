@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class StorageService {
   $token: string | null = null;
   private user: any;
@@ -23,7 +25,7 @@ export class StorageService {
     return this.user?.token;
   }
 
-  delUser() {
+  delToken() {
     this.user = {};
   }
 }

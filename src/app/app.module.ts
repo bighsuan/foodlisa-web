@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProductService } from './services/product.service';
 import { StoreService } from './services/store.service';
+import { UserService } from './services/user.service';
+
 import { ProductListComponent } from './pages/product/product-list/product-list.component';
 import { ProductEditComponent } from './pages/product/product-edit/product-edit.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -56,6 +58,6 @@ import { NavigateChildComponent } from './components/navigate-child/navigate-chi
     NavigateChildComponent
   ],
   bootstrap: [AppComponent],
-  providers: [ProductService, StoreService, ApiService]
+  providers: [ProductService, StoreService, UserService, ApiService]
 })
 export class AppModule {}

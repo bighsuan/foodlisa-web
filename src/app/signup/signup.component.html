@@ -11,15 +11,6 @@
 
     <div class="signupInfo">
       <form [formGroup]="signupForm" (ngSubmit)="submit()">
-        <h4>Email地址</h4>
-        <input
-        type="email"
-        formControlName="email"
-      />
-        <span class="warningInfo">
-        <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.email"></i>
-        {{errMsg.passwordCheck}}
-      </span>
 
         <h4>姓氏</h4>
         <input
@@ -48,6 +39,16 @@
   />
         <span class="warningInfo">
         <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.phone"></i>
+        {{errMsg.passwordCheck}}
+      </span>
+
+        <h4>Email地址</h4>
+        <input
+        type="email"
+        formControlName="email"
+      />
+        <span class="warningInfo">
+        <i class="fas fa-exclamation-circle fa-sm" *ngIf="errMsg.email"></i>
         {{errMsg.passwordCheck}}
       </span>
 

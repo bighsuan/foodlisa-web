@@ -3,7 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LoginService } from '../services/login.service';
-import { UserService } from '../services/user.service';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private loginService: LoginService,
-    private userService: UserService,
+    private storageService: StorageService,
     private router: Router
   ) {}
 
@@ -44,10 +44,12 @@ export class LoginComponent implements OnInit {
     if (this.validation()) {
       this.loginService
         .login(this.value)
-        .subscribe((user) => this.userService.setUser(user),
-        (err)=> Swal.fire('Oops', '登入失敗, 請檢查手機和密碼喔'),
-        () => Swal.fire('OK', '登入成功'));
-      
+        .subscribe(
+          user => this.storageService.setUser(user),
+          err => Swal.fire('Oops', '登入失敗, 請檢查手機和密碼喔'),
+          () => Swal.fire('OK', '登入成功')
+        );
+
       // this.router.navigate(['/'])
     } else {
       Swal.fire('Oops', '請檢查輸入資料');

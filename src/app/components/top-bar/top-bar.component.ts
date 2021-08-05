@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -8,8 +9,11 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TopBarComponent implements OnInit {
   @Input()
   title: string | undefined;
+  userName: string | undefined;
 
-  constructor() {}
+  constructor(private storageService: StorageService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userName = this.storageService.getName();
+  }
 }

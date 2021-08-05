@@ -1,0 +1,88 @@
+<div class="rightSide">
+<!-- <div class="loader" *ngIf="isLoading"></div> -->
+<h2>{{value.name? "編輯商品": "新增商品"}}</h2>
+<div class="divider"></div>
+<div class="giveWrap">
+  <div class="giveDetail"> 
+    <form [formGroup]="productForm" (ngSubmit)="submit()">
+
+      <!-- 類別 -->
+      <!-- <div class="givesshelvesFormWrap">
+        <span>類別</span>
+        <select
+        name
+        id="classSelect"
+        formControlName="category"
+    >
+            <option value="makeups">makeups</option>
+            <option value="shoes">shoes</option>
+            <option value="clothing">clothing</option>
+            <option value="3C">3C</option>
+            <option value="other">other</option>
+        </select>
+      </div> -->
+
+      <!-- 商品名稱 -->
+      <div class="givesshelvesFormWrap">
+        <span>商品名稱</span>
+        <input
+            type="text"
+            class="givesUp"
+            formControlName="name"
+            />
+      </div>
+
+      <!-- 商品價格 -->
+      <div class="givesshelvesFormWrap">
+        <span>商品價格</span>
+        <input
+              type="text"
+              class="givesUp imgUpdate"
+              formControlName="price"
+          />
+      </div>
+
+      <!-- 商品描述 -->
+      <div class="givesshelvesFormWrap">
+        <span>商品描述</span>
+        <textarea
+          cols="30"
+          rows="3"
+          type="text"
+          class="givesUp imgUpdate"
+          formControlName="description"
+      ></textarea>
+      </div>
+
+      <!-- 商品圖片 -->
+      <div class="givesshelvesFormWrap">
+        <span>圖片網址</span>
+        <div id="specificDiv">
+          <input
+            type="text"
+            class="givesUp"
+            formControlName="imageUrl"
+            id="specificInput"
+        />
+          <img
+        [src]="product.imageUrl"
+        alt
+      />
+        </div>
+      </div>
+
+      <div class="upBtn">
+        <button
+          class="shelvesBtn mx-2"
+          type="button"
+          (click)="back()"
+      >取消</button>
+        <button
+            class="shelvesBtn"
+            type="submit"
+        >儲存</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import { UserService } from './user.service';
+import { StorageService } from './storage.service';
 // @ts-ignore
 import * as forge from 'node-forge';
 import { ILoginData } from '../models/login';
@@ -18,7 +18,10 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient, private userService: UserService) {}
+  constructor(
+    private http: HttpClient,
+    private storageService: StorageService
+  ) {}
 
   getPublicKey(): Observable<any> {
     console.log('getPublicKey');
@@ -55,7 +58,7 @@ export class LoginService {
   }
 
   logout() {
-    this.userService.delUser();
+    this.storageService.delToken();
   }
 
   signup(postData: any): Observable<any> {
