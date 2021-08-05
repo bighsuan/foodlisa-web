@@ -5,6 +5,7 @@ import { IProduct } from '../../../models';
 import { ProductService } from '../../../services/product.service';
 import { Location } from '@angular/common';
 import Swal from 'sweetalert2';
+import { StorageService } from '../../../services/storage.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -34,6 +35,7 @@ export class ProductEditComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private productService: ProductService,
+    private storageService: StorageService,
     private router: Router,
     private location: Location
   ) {}
@@ -69,6 +71,16 @@ export class ProductEditComponent implements OnInit {
 
   submit(): void {
     if (this.validation()) {
+      // 組資料＆轉換價格type
+      let price: number = +this.value.price;
+      let body = {
+        "storeId":    this.storageService.getUserId(),
+         "name":      this.value.name,
+         "description":this.value.description,
+         "price":     price,
+         "imageUrl": this.value.imageUrl
+        };
+
       // 修改
       if (this.route.snapshot.paramMap.get('id') != null) {
         this.productService
@@ -87,7 +99,7 @@ export class ProductEditComponent implements OnInit {
       }
       // 新增
       else {
-        this.productService.addProduct(this.value).subscribe(
+        this.productService.addProduct(body).subscribe(
           product =>
             Swal.fire({
               title: 'OK',

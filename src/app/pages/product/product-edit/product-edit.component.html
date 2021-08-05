@@ -3,7 +3,7 @@
   <h2>{{value.name? "編輯商品": "新增商品"}}</h2>
   <div class="divider"></div>
   <div class="giveWrap">
-    <div class="giveDetail"> 
+    <div class="giveDetail">
       <form [formGroup]="productForm" (ngSubmit)="submit()">
 
         <!-- 類別 -->
@@ -65,6 +65,7 @@
               id="specificInput"
           />
             <img
+            *ngIf = "product.imageUrl"
           [src]="product.imageUrl"
           alt
         />

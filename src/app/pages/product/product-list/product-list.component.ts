@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../../../services/product.service';
 import { IProduct } from '../../../models/product';
 import Swal from 'sweetalert2';
+import { StorageService } from '../../../services/storage.service';
 
 @Component({
   selector: 'app-product-list',
@@ -12,7 +13,7 @@ export class ProductListComponent implements OnInit {
   products: IProduct[] = [];
   isLoading = false;
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService, private storageService: StorageService) {}
 
   ngOnInit() {
     this.getProducts();

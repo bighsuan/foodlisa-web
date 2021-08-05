@@ -31,9 +31,6 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginService.getPublicKey();
-    console.log(this.storageService.getName());
-    console.log(this.storageService.getToken());
-    console.log(this.storageService.getUserId());
   }
 
   forgetPassword(): void {

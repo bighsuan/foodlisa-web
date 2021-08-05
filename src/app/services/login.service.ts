@@ -8,7 +8,7 @@ import * as forge from 'node-forge';
 import { ILoginData } from '../models/login';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
   private baseUrl = 'https://foodlisa.sytes.net/api/v1';

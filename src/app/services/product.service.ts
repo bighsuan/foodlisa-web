@@ -13,19 +13,15 @@ export class ProductService {
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json',
-    Authorization: 'bearer '+this.storageService.getToken() })
+    Authorization: 'Bearer '+this.storageService.getToken() })
   };
 
   constructor(private http: HttpClient, private storageService: StorageService) {}
 
   /** GET products from the server */
   getProducts(): Observable<IProduct[]> {
-    console.log(this.storageService.getName());
-    console.log(this.storageService.getToken());
-    console.log(this.storageService.getUserId());
-
     const url = `${this.baseUrl}/prods`;
-    return this.http.get<IProduct[]>(url).pipe(catchError(this.handleError));
+    return this.http.get<IProduct[]>(url,this.httpOptions).pipe(catchError(this.handleError));
   }
 
   /** GET product by id. Will 404 if id not found */
