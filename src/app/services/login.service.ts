@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { UserService } from './user.service';
 // @ts-ignore
 import * as forge from 'node-forge';
@@ -13,13 +13,13 @@ export class LoginService {
   private baseUrl = 'https://foodlisa.sytes.net/api/v1';
   // private baseUrl = "http://localhost/api/v1";
 
-  publicKey: string | null = null;
-
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(private http: HttpClient, private userService: UserService) {}
+
+  publickey = 'string';
 
   getPublicKey(): Observable<any> {
     console.log('getPublicKey');
@@ -30,11 +30,16 @@ export class LoginService {
       .pipe(catchError(this.handleError));
   }
 
-  getToken(postData: any): Observable<any> {
+  getToken(postData: any, publicKey: string): Observable<any> {
+    interface ILoginData {
+      phone: string;
+      password: string;
+    }
+
     console.log('gettoken');
 
-    if (this.publicKey != null) {
-      var rsa = forge.pki.publicKeyFromPem(this.publicKey);
+    if (publicKey != null) {
+      var rsa = forge.pki.publicKeyFromPem(publicKey);
       var encryPassword = window.btoa(rsa.encrypt(postData.password));
 
       console.log(encryPassword);
@@ -42,14 +47,18 @@ export class LoginService {
     }
     const url = `${this.baseUrl}/sessions`;
 
+    console.log(postData);
     return this.http
-      .post<any>(url, postData, this.httpOptions)
+      .post<ILoginData>(url, postData, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
-  login(postData: any): Observable<any> {
-    this.getPublicKey().subscribe(publicKey => (this.publicKey = publicKey));
-    return this.getToken(postData);
+  login(postData: any) {
+    this.getPublicKey()
+      .pipe(switchMap(pubkey => this.getToken(postData, pubkey)))
+      .subscribe(user => {
+        this.userService.setUser(user);
+      });
   }
 
   logout() {
