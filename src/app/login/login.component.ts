@@ -34,7 +34,11 @@ export class LoginComponent implements OnInit {
   }
 
   forgetPassword(): void {
-    Swal.fire('Oops', '現在還沒有這個功能喔');
+    Swal.fire({
+      
+      title: 'Oops',
+      html: '現在還沒有這個功能喔<br>你可以試試用別的手機註冊',
+    });
   }
 
   get value() {
