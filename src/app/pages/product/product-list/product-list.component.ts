@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-tores;
 import { ProductService } from '../../../services/product.service';
 import { IProduct } from '../../../models/product';
 import Swal from 'sweetalert2';
