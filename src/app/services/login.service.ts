@@ -5,6 +5,7 @@ import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { UserService } from './user.service';
 // @ts-ignore
 import * as forge from 'node-forge';
+import { ILoginData } from '../models/login';
 
 @Injectable({
   providedIn: 'root'
@@ -30,39 +31,55 @@ export class LoginService {
       .pipe(catchError(this.handleError));
   }
 
-  getToken(postData: any, publicKey: string): Observable<any> {
-    interface ILoginData {
-      phone: string;
-      password: string;
-    }
+  post(postData: any, url: string): Observable<ILoginData> {
+    let apiUrl = `${this.baseUrl}${url}`;
 
-    console.log('gettoken');
-
-    if (publicKey != null) {
-      var rsa = forge.pki.publicKeyFromPem(publicKey);
-      var encryPassword = window.btoa(rsa.encrypt(postData.password));
-
-      console.log(encryPassword);
-      postData.password = encryPassword;
-    }
-    const url = `${this.baseUrl}/sessions`;
-
-    console.log(postData);
     return this.http
-      .post<ILoginData>(url, postData, this.httpOptions)
+      .post<any>(apiUrl, postData, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
-  login(postData: any) {
-    this.getPublicKey()
-      .pipe(switchMap(pubkey => this.getToken(postData, pubkey)))
-      .subscribe(user => {
-        this.userService.setUser(user);
-      });
+  login(postData: ILoginData): Observable<any> {
+    return this.getPublicKey().pipe(
+      switchMap(publicKey => {
+        // 加密
+        var rsa = forge.pki.publicKeyFromPem(publicKey);
+        var encryPassword = window.btoa(rsa.encrypt(postData.password));
+
+        console.log(encryPassword);
+        var requestData = {
+          phone: postData.phone,
+          password: encryPassword
+        };
+        return this.post(requestData, '/sessions');
+      })
+    );
   }
 
   logout() {
     this.userService.delUser();
+  }
+
+  signup(postData: any): Observable<any> {
+    return this.getPublicKey().pipe(
+      switchMap(publicKey => {
+        // 加密
+        var rsa = forge.pki.publicKeyFromPem(publicKey);
+        var encryPassword = window.btoa(rsa.encrypt(postData.password));
+
+        console.log(encryPassword);
+        var requestData = {
+          email: postData.email,
+          firstName: postData.firstName,
+          lastName: postData.lastName,
+          phone: postData.phone,
+          password: encryPassword
+        };
+        console.log(requestData);
+        console.log('註冊');
+        return this.post(requestData, '/users');
+      })
+    );
   }
 
   // logout(): Observable<any> {

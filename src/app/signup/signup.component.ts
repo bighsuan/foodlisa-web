@@ -45,13 +45,12 @@ export class SignupComponent implements OnInit {
 
   submit(): void {
     if (this.validation()) {
-      this.loginService
-        .login(this.value)
-        .subscribe(
-          user => this.userService.setUser(user),
-          err => Swal.fire('Oops', '註冊失敗, 請稍後再試'),
-          () => Swal.fire('OK', '註冊成功')
-        );
+      this.loginService.signup(this.value).subscribe(
+        result => console.log(result)
+        // user => this.userService.setUser(user),
+        // err => Swal.fire('Oops', '註冊失敗, 請稍後再試'),
+        // () => Swal.fire('OK', '註冊成功')
+      );
 
       // this.router.navigate(['/'])
     } else {
