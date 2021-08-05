@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { StorageService } from '../../services/storage.service';
 
 @Component({
@@ -9,18 +11,24 @@ import { StorageService } from '../../services/storage.service';
 export class TopBarComponent implements OnInit {
   @Input()
   title: string | undefined;
-  userName: string | undefined;
-  id: string | undefined;
 
-  constructor(private storageService: StorageService) {}
+  constructor(public storageService: StorageService, private router: Router) {}
 
-  ngOnInit() {
-    this.id = this.storageService.getId();
-    console.log(this.id);
-    this.userName = this.storageService.getName();
-  }
+  ngOnInit() {}
 
   logout() {
-    this.storageService.delToken();
+    Swal.fire({
+      text: '確定要登出嗎?',
+      showCancelButton: true,
+      confirmButtonText: `登出`,
+      cancelButtonText: `取消`
+    }).then(result => {
+      if (result.isConfirmed) {
+        this.storageService.delToken();
+        Swal.fire('', '登出成功').then(() => {
+          this.router.navigate(['/login']);
+        });
+      }
+    });
   }
 }

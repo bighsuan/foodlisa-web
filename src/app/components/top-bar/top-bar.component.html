@@ -1,22 +1,21 @@
 <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-white py-4 mx-auto">
-  <div class="mx-md-4">
-    <button class="btn navbar-toggler py-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#myOffcanvas" aria-controls="myOffcanvas">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a id="logo" class="logo" routerLink="/">{{title}}</a>
-  </div>
-  <div>{{id}}</div>
-  <div class="mx-4">
-    <a *ngIf="*ngIf="(authenticationService.authenticated$ | async) === false"; else elseTmpl" (click)="logout">
-      LOGOUT <i class="far fa-user-circle fa-lg"></i>
+<div class="mx-md-4">
+  <button class="btn navbar-toggler py-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#myOffcanvas" aria-controls="myOffcanvas">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a id="logo" class="logo" routerLink="/">{{title}}</a>
+</div>
+<div class="mx-4">
+  <a *ngIf="storageService.getId(); else elseTmpl" class="logoutBtn" (click)="logout()">
+    {{storageService.getName()}} <i class="far fa-user-circle fa-lg"></i>
+  </a>
+  <ng-template #elseTmpl>
+    <a routerLink="/login">
+      LOGIN <i class="far fa-user-circle fa-lg"></i>
     </a>
-    <ng-template #elseTmpl>
-      <a routerLink="/login">
-        LOGIN <i class="far fa-user-circle fa-lg"></i>
-      </a>
-    </ng-template>
+  </ng-template>
 
-  </div>
+</div>
 </nav>
 
 <app-navigate></app-navigate>
