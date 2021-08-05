@@ -46,13 +46,12 @@ export class SignupComponent implements OnInit {
   submit(): void {
     if (this.validation()) {
       this.loginService.signup(this.value).subscribe(
-        result => console.log(result)
-        // user => this.userService.setUser(user),
-        // err => Swal.fire('Oops', '註冊失敗, 請稍後再試'),
-        // () => Swal.fire('OK', '註冊成功')
+        () => Swal.fire('OK', '註冊成功')
+        .then(() => {
+          this.router.navigate(['/login']);
+        }),
+        err => Swal.fire('Oops', '註冊失敗, 請稍後再試'),
       );
-
-      // this.router.navigate(['/'])
     } else {
       Swal.fire('Oops', '請檢查輸入資料');
     }

@@ -24,7 +24,6 @@ export class LoginService {
   ) {}
 
   getPublicKey(): Observable<any> {
-    console.log('getPublicKey');
     const url = `/publickey`;
 
     return this.http
@@ -47,7 +46,6 @@ export class LoginService {
         var rsa = forge.pki.publicKeyFromPem(publicKey);
         var encryPassword = window.btoa(rsa.encrypt(postData.password));
 
-        console.log(encryPassword);
         var requestData = {
           phone: postData.phone,
           password: encryPassword
@@ -68,7 +66,6 @@ export class LoginService {
         var rsa = forge.pki.publicKeyFromPem(publicKey);
         var encryPassword = window.btoa(rsa.encrypt(postData.password));
 
-        console.log(encryPassword);
         var requestData = {
           email: postData.email,
           firstName: postData.firstName,
@@ -76,8 +73,6 @@ export class LoginService {
           phone: postData.phone,
           password: encryPassword
         };
-        console.log(requestData);
-        console.log('註冊');
         return this.post(requestData, '/users');
       })
     );
@@ -96,6 +91,7 @@ export class LoginService {
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
+
       return of(result as T);
     };
   }
