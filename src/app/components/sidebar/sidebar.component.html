@@ -2,7 +2,7 @@
   <div class="col-3 d-none d-md-block">
     <nav class="nav flex-column">
       <app-sidebar-parent title="會員中心">
-        <app-sidebar-child tdivideritle="個人帳戶管理" routerLink="['/']">
+        <app-sidebar-child title="個人帳戶管理">
         </app-sidebar-child>
         <app-sidebar-child title="修改密碼"></app-sidebar-child>
       </app-sidebar-parent>
@@ -20,7 +20,7 @@
         <app-sidebar-child title="新增商品" routerLink="/products/new">
         </app-sidebar-child>
       </app-sidebar-parent>
-      <a class="nav-link disabled  my-2 ps-0" routerLink="/" tabindex="-1">會員登出</a>
+      <a class="nav-link logoutBtn my-2 ps-0" (click)="logout()" tabindex="-1">會員登出</a>
     </nav>
   </div>
   <div class="col">

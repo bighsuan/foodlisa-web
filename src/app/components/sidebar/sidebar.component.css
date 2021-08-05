@@ -205,3 +205,12 @@ tbody {
 .myOrder li {
   margin-top: 15px;
 }
+
+.logoutBtn {
+  color: #513a50;
+}
+
+.logoutBtn:hover {
+  color: #ffca7a;
+  cursor: pointer;
+}

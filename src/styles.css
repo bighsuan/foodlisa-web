@@ -97,6 +97,10 @@ body {
   background-color: #513a50;
 }
 
+.swal2-styled.swal2-cancel {
+  background-color: #513a50;
+}
+
 li,
 ul {
   list-style-type: none;

@@ -12,12 +12,12 @@ import { UserService } from '../services/user.service';
 })
 export class SignupComponent implements OnInit {
   signupForm = this.fb.group({
-    email: ['a@gmail.com'],
-    firstName: ['lisa'],
-    lastName: ['chen'],
-    phone: ['0922764336'],
-    password: ['123123123'],
-    passwordCheck: ['123123123']
+    email: [''],
+    firstName: [''],
+    lastName: [''],
+    phone: [''],
+    password: [''],
+    passwordCheck: ['']
   });
 
   errMsg = {
@@ -46,11 +46,11 @@ export class SignupComponent implements OnInit {
   submit(): void {
     if (this.validation()) {
       this.loginService.signup(this.value).subscribe(
-        () => Swal.fire('OK', '註冊成功')
-        .then(() => {
-          this.router.navigate(['/login']);
-        }),
-        err => Swal.fire('Oops', '註冊失敗, 請稍後再試'),
+        () =>
+          Swal.fire('OK', '註冊成功').then(() => {
+            this.router.navigate(['/login']);
+          }),
+        err => Swal.fire('Oops', '註冊失敗, 請稍後再試')
       );
     } else {
       Swal.fire('Oops', '請檢查輸入資料');
