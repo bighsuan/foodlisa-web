@@ -20,6 +20,10 @@ export class ProductService {
 
   /** GET products from the server */
   getProducts(): Observable<IProduct[]> {
+    console.log(this.storageService.getName());
+    console.log(this.storageService.getToken());
+    console.log(this.storageService.getUserId());
+
     const url = `${this.baseUrl}/prods`;
     return this.http.get<IProduct[]>(url).pipe(catchError(this.handleError));
   }

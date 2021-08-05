@@ -31,6 +31,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginService.getPublicKey();
+    console.log(this.storageService.getName());
+    console.log(this.storageService.getToken());
+    console.log(this.storageService.getUserId());
   }
 
   forgetPassword(): void {
@@ -45,10 +48,11 @@ export class LoginComponent implements OnInit {
       this.loginService
         .login(this.value)
         .subscribe(
-          user => this.storageService.setUser(user),
+          user => console.log(user),
           err => Swal.fire('Oops', '登入失敗, 請檢查手機和密碼喔'),
           () => Swal.fire('OK', '登入成功')
           .then(() => {
+            
             this.router.navigate(['/sign-up']);
           }),
         );
