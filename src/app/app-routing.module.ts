@@ -46,11 +46,11 @@ const routes: Routes = [
         component: MemberInfoComponent
       },
       {
-        path: 'members/:id/edit',
+        path: 'profile/edit',
         component: MemberEditComponent
       },
       {
-        path: 'members/:id/edit/password',
+        path: 'profile/edit/password',
         component: MemberEditPasswordComponent
       }
     ]

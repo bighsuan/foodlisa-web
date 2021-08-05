@@ -2,19 +2,28 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class StorageService {
-  $token: string|null = null;
-  $publicKey: string|null = null;
+  $token: string | null = null;
+  private user: any;
 
-  constructor() { }
+  constructor() {}
 
-  setUser() {
-
+  setUser(user: any) {
+    this.user = user;
   }
 
-  setPublicKey(publicKey : string): void {
-    this.$publicKey = publicKey;
-    console.log(this.$publicKey);
+  getUserId() {
+    return this.user?.userId;
   }
 
+  getName() {
+    return this.user?.name;
+  }
 
+  getToken() {
+    return this.user?.token;
+  }
+
+  delUser() {
+    this.user = {};
+  }
 }

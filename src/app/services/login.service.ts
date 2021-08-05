@@ -20,8 +20,6 @@ export class LoginService {
 
   constructor(private http: HttpClient, private userService: UserService) {}
 
-  publickey = 'string';
-
   getPublicKey(): Observable<any> {
     console.log('getPublicKey');
     const url = `/publickey`;
