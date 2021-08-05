@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
   }
 
   checkLogin(url: string): true | UrlTree {
-    if (this.storageService.getUserId()) {
+    if (this.storageService.getId()) {
       return true;
     }
 

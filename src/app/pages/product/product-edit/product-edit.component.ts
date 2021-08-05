@@ -74,12 +74,12 @@ export class ProductEditComponent implements OnInit {
       // 組資料＆轉換價格type
       let price: number = +this.value.price;
       let body = {
-        "storeId":    this.storageService.getUserId(),
-         "name":      this.value.name,
-         "description":this.value.description,
-         "price":     price,
-         "imageUrl": this.value.imageUrl
-        };
+        storeId: this.storageService.getId(),
+        name: this.value.name,
+        description: this.value.description,
+        price: price,
+        imageUrl: this.value.imageUrl
+      };
 
       // 修改
       if (this.route.snapshot.paramMap.get('id') != null) {

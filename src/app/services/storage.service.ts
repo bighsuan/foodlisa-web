@@ -11,10 +11,16 @@ export class StorageService {
 
   setUser(user: any) {
     this.user = user;
+    console.log('setUser-------------');
+    console.log(this.user);
   }
 
-  getUserId() {
-    return this.user?.userId;
+  getUser() {
+    return this.user;
+  }
+
+  getId() {
+    return this.user?.id;
   }
 
   getName() {

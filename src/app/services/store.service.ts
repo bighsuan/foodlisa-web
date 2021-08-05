@@ -22,22 +22,22 @@ export class StoreService {
 
   /** GET products from the server */
   getStores(): Observable<IStore[]> {
-    const url = `${this.baseUrl}/users/${this.storageService.getUserId}/stores`;
+    const url = `${this.baseUrl}/users/${this.storageService.getId()}/stores`;
     return this.http.get<IStore[]>(url).pipe(catchError(this.handleError));
   }
 
   /** GET product by id. Will 404 if id not found */
   getStore(id: number): Observable<IStore> {
-    const url = `${this.baseUrl}/users/${
-      this.storageService.getUserId
-    }/stores/${id}`;
+    const url = `${
+      this.baseUrl
+    }/users/${this.storageService.getId()}/stores/${id}`;
     return this.http.get<IStore>(url);
   }
 
   /** POST: add a new product to the server */
   addStore(postData: any): Observable<any> {
     return this.http.post<IStore>(
-      `${this.baseUrl}/users/${this.storageService.getUserId}/stores`,
+      `${this.baseUrl}/users/${this.storageService.getId()}/stores`,
       postData,
       this.httpOptions
     );
@@ -45,18 +45,18 @@ export class StoreService {
 
   /** DELETE: delete the product from the server */
   deleteStore(id: number): Observable<IStore> {
-    const url = `${this.baseUrl}/users/${
-      this.storageService.getUserId
-    }/stores/${id}`;
+    const url = `${
+      this.baseUrl
+    }/users/${this.storageService.getId()}/stores/${id}`;
 
     return this.http.delete<IStore>(url, this.httpOptions);
   }
 
   /** PUT: update the product on the server */
   updateStore(id: number, product: IStore): Observable<any> {
-    const url = `${this.baseUrl}/users/${
-      this.storageService.getUserId
-    }/stores/${id}`;
+    const url = `${
+      this.baseUrl
+    }/users/${this.storageService.getId()}/stores/${id}`;
     return this.http.put(url, product, this.httpOptions);
   }
 

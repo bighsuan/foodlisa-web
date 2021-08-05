@@ -42,17 +42,16 @@ export class LoginComponent implements OnInit {
   }
   login(): void {
     if (this.validation()) {
-      this.loginService
-        .login(this.value)
-        .subscribe(
-          user => console.log(user),
-          err => Swal.fire('Oops', '登入失敗, 請檢查手機和密碼喔'),
-          () => Swal.fire('OK', '登入成功')
-          .then(() => {
-            
-            this.router.navigate(['/sign-up']);
-          }),
-        );
+      this.loginService.login(this.value).subscribe(
+        user => this.storageService.setUser(user),
+        err => Swal.fire('Oops', '登入失敗, 請檢查手機和密碼喔'),
+        () =>
+          Swal.fire('OK', '登入成功').then(() => {
+            console.log('login.service-------------------');
+            console.log(this.storageService.getUser());
+            this.router.navigate(['/products']);
+          })
+      );
 
       // this.router.navigate(['/'])
     } else {
