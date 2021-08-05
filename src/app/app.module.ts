@@ -16,11 +16,8 @@ import { UserService } from './services/user.service';
 import { ProductListComponent } from './pages/product/product-list/product-list.component';
 import { ProductEditComponent } from './pages/product/product-edit/product-edit.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { MemberEditComponent } from './pages/member/member-edit/member-edit.component';
-import { MemberInfoComponent } from './pages/member/member-info/member-info.component';
 import { SidebarParentComponent } from './components/sidebar-parent/sidebar-parent.component';
 import { SidebarChildComponent } from './components/sidebar-child/sidebar-child.component';
-import { MemberEditPasswordComponent } from './pages/member/member-edit-password/member-edit-password.component';
 import { TopBarComponent } from './components/top-bar/top-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ApiService } from './services/api.service';
@@ -47,9 +44,6 @@ import { NavigateChildComponent } from './components/navigate-child/navigate-chi
     SignupComponent,
     ProductListComponent,
     SidebarComponent,
-    MemberEditComponent,
-    MemberInfoComponent,
-    MemberEditPasswordComponent,
     SidebarParentComponent,
     SidebarChildComponent,
     ProductDetailComponent,

@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  stores: IProduct[] = [];
+  products: IProduct[] = [];
   isLoading = false;
 
   constructor(private productService: ProductService) {}
@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
   getProducts(): void {
     this.productService
       .getProducts()
-      .subscribe((stores: IProduct[]) => (this.stores = stores));
+      .subscribe((products: IProduct[]) => (this.products = products));
   }
 
   delProduct(id: number): void {
