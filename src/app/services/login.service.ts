@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { UserService } from './user.service';
+// @ts-ignore
 import * as forge from 'node-forge';
 
 @Injectable({
@@ -21,6 +22,7 @@ export class LoginService {
   constructor(private http: HttpClient, private userService: UserService) {}
 
   getPublicKey(): Observable<any> {
+    console.log('getPublicKey');
     const url = `/publickey`;
 
     return this.http
@@ -29,11 +31,12 @@ export class LoginService {
   }
 
   getToken(postData: any): Observable<any> {
+    console.log('gettoken');
+
     if (this.publicKey != null) {
       var rsa = forge.pki.publicKeyFromPem(this.publicKey);
       var encryPassword = window.btoa(rsa.encrypt(postData.password));
 
-      console.log(rsa);
       console.log(encryPassword);
       postData.password = encryPassword;
     }

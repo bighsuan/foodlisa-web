@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { LoginService } from '../services/login.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -11,12 +12,12 @@ import { LoginService } from '../services/login.service';
 })
 export class SignupComponent implements OnInit {
   signupForm = this.fb.group({
-    email: [''],
-    firstName: [''],
-    lastName: [''],
-    phone: [''],
-    password: [''],
-    passwordCheck: ['']
+    email: ['a@gmail.com'],
+    firstName: ['lisa'],
+    lastName: ['chen'],
+    phone: ['0922764336'],
+    password: ['123123123'],
+    passwordCheck: ['123123123']
   });
 
   errMsg = {
@@ -31,6 +32,7 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private route: ActivatedRoute,
+    private userService: UserService,
     private loginService: LoginService,
     private router: Router
   ) {}
@@ -43,10 +45,15 @@ export class SignupComponent implements OnInit {
 
   submit(): void {
     if (this.validation()) {
-      // this.loginService
-      //   .signup(this.value)
-      //   .subscribe(() => this.router.navigate(['/']));
-      Swal.fire('OK', '註冊API');
+      this.loginService
+        .login(this.value)
+        .subscribe(
+          user => this.userService.setUser(user),
+          err => Swal.fire('Oops', '註冊失敗, 請稍後再試'),
+          () => Swal.fire('OK', '註冊成功')
+        );
+
+      // this.router.navigate(['/'])
     } else {
       Swal.fire('Oops', '請檢查輸入資料');
     }
