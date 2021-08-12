@@ -9,3 +9,13 @@
 .btn-close {
   box-shadow: none;
 }
+
+.logoutBtn {
+  color: #513a50;
+  cursor: pointer;
+}
+
+.logoutBtn:hover,
+.logoutBtn:focus {
+  color: #ffca7a;
+}

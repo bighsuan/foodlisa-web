@@ -7,3 +7,7 @@
   color: #ffca7a;
   background-color: white;
 }
+
+.dropdown-item.disabled {
+  color: #adb5bd;
+}

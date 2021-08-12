@@ -7,17 +7,17 @@
   </div>
   <div class="offcanvas-body">
     <app-navigate-parent title="會員中心">
-      <app-sidebar-child disabled title="個人帳戶管理">
+      <app-sidebar-child disabled title="個人帳戶管理" disabled>
       </app-sidebar-child>
-      <app-sidebar-child title="修改密碼"></app-sidebar-child>
+      <app-sidebar-child title="修改密碼" disabled></app-sidebar-child>
     </app-navigate-parent>
     <app-navigate-parent title="店家資訊">
-      <app-sidebar-child title="店家資訊管理"></app-sidebar-child>
+      <app-sidebar-child title="店家資訊管理" disabled></app-sidebar-child>
     </app-navigate-parent>
     <app-navigate-parent title="訂單管理">
-      <app-sidebar-child title="進行中訂單"></app-sidebar-child>
-      <app-sidebar-child title="歷史訂單"></app-sidebar-child>
-      <app-sidebar-child title="接單統計"></app-sidebar-child>
+      <app-sidebar-child title="進行中訂單" disabled></app-sidebar-child>
+      <app-sidebar-child title="歷史訂單" disabled></app-sidebar-child>
+      <app-sidebar-child title="接單統計" disabled></app-sidebar-child>
     </app-navigate-parent>
     <app-navigate-parent title="商品管理">
       <app-sidebar-child title="商品列表" routerLink="/products">
@@ -26,5 +26,5 @@
       </app-sidebar-child>
     </app-navigate-parent>
 
-
+    <a class="nav-link logoutBtn my-2 px-2" (click)="logout()" tabindex="-1">會員登出</a>
   </div>

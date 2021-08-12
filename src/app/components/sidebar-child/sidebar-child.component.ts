@@ -12,6 +12,9 @@ export class SidebarChildComponent implements OnInit {
   @Input()
   routerLink: string | undefined;
 
+  @Input()
+  disabled: string | undefined;
+
   constructor() {}
 
   ngOnInit() {}
