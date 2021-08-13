@@ -1,3 +1,7 @@
 .btn:focus {
   box-shadow: none;
 }
+
+.parent-item {
+  color: #513a50;
+}

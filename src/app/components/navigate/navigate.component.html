@@ -5,7 +5,7 @@
     <!-- 右上叉叉 -->
     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
-  <div class="offcanvas-body">
+  <div *ngIf="storageService.getId(); else elseTmpl" class="offcanvas-body">
     <app-navigate-parent title="會員中心">
       <app-sidebar-child disabled title="個人帳戶管理" disabled>
       </app-sidebar-child>
@@ -20,11 +20,17 @@
       <app-sidebar-child title="接單統計" disabled></app-sidebar-child>
     </app-navigate-parent>
     <app-navigate-parent title="商品管理">
-      <app-sidebar-child title="商品列表" routerLink="/products">
+      <app-sidebar-child title="商品列表" routerLink="/products" data-bs-dismiss="offcanvas">
       </app-sidebar-child>
-      <app-sidebar-child title="新增商品" routerLink="/products/new">
+      <app-sidebar-child title="新增商品" routerLink="/products/new" data-bs-dismiss="offcanvas">
       </app-sidebar-child>
     </app-navigate-parent>
 
-    <a class="nav-link logoutBtn my-2 px-2" (click)="logout()" tabindex="-1">會員登出</a>
+    <a class=" nav-link funcBtn my-2" (click)="logout()" tabindex="-1" data-bs-dismiss="offcanvas">會員登出</a>
   </div>
+  <ng-template #elseTmpl>
+    <div class="offcanvas-body">
+      <a class="nav-link funcBtn my-2" routerLink="/login" tabindex="-2" data-bs-dismiss="offcanvas">會員登入</a>
+      <a class="nav-link funcBtn my-2" routerLink="/sign-up" tabindex="-1" data-bs-dismiss="offcanvas">註冊會員</a>
+    </div>
+  </ng-template>

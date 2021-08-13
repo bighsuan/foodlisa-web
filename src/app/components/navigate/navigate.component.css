@@ -10,12 +10,13 @@
   box-shadow: none;
 }
 
-.logoutBtn {
+.funcBtn {
   color: #513a50;
   cursor: pointer;
+  padding-left: 14px;
 }
 
-.logoutBtn:hover,
-.logoutBtn:focus {
+.funcBtn:hover,
+.funcBtn:focus {
   color: #ffca7a;
 }

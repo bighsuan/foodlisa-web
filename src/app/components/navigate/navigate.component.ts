@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+import { StorageService } from '../../services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigate',
@@ -6,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigate.component.css']
 })
 export class NavigateComponent implements OnInit {
-  constructor() {}
+  constructor(public storageService: StorageService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    document.body.addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+  }
 
-  logout() {}
+  logout() {
+    Swal.fire({
+      text: '確定要登出嗎?',
+      showCancelButton: true,
+      confirmButtonText: `登出`,
+      cancelButtonText: `取消`
+    }).then(result => {
+      if (result.isConfirmed) {
+        this.storageService.delToken();
+        Swal.fire('', '登出成功').then(() => {
+          this.router.navigate(['/login']);
+        });
+      }
+    });
+  }
+
+  closeDrawer() {
+    // .foundation('close')
+  }
 }
